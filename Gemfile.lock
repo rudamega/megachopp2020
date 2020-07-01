@@ -267,7 +267,7 @@ DEPENDENCIES
   capistrano (~> 3.11)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
-  capistrano-rails-console (~> 2.3)
+  capistrano-rails-console
   capistrano-rbenv (~> 2.1, >= 2.1.4)
   capybara (>= 2.15)
   devise
