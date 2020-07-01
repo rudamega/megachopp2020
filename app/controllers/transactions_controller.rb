@@ -1,11 +1,25 @@
 class TransactionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :new, :create, :show]
+
   def index
+    @transactions = Transaction.all
   end
 
   def new
+    @bank = Bank.find(params[:bank_id])
+    @transaction = Transaction.new
   end
 
   def create
+    @transaction = Transaction.new(trans_params)
+    @transaction.bank_id = params[:bank_id]
+    if @transaction.save
+      redirect_to bank_path(params[:bank_id])
+    end
+  end
 
+  private
+  def trans_params
+    params.require(:transaction).permit(:date, :comprobante, :importe_debito, :importe_credito)
   end
 end

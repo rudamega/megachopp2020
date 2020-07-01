@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <%= simple_form_for [@bank, @transaction] do |f| %>
+        <%= f.input :date %>
+        <%= f.input :comprobante, label: "Documento"%>
+        <%= f.input :importe_debito, label: "Debito"%>
+        <%= f.input :importe_credito, label: "Credito"%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Insertar Movimiento"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
