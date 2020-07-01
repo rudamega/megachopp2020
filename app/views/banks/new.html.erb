@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Nuevo banco</h3>
+
+      <%= simple_form_for(@bank) do |f| %>
+        <%= f.input :name, label: "Nombre"%>
+        <%= f.input :account_number, label: "Nro de Cuenta"%>
+        <%= f.input :saldo_inicial, label: "Saldo Inicial"%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Crear Banco"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
