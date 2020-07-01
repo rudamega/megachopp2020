@@ -1,0 +1,27 @@
+<%= link_to "Cargar movimiento", new_bank_transaction_path(@bank) %>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Debito</th>
+        <th scope="col">Credito</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |trans| %>
+        <tr>
+          <th scope="row"><%=trans.date%></th>
+          <td><%=trans.comprobante %></td>
+          <td><%=trans.importe_debito%></td>
+          <td><%=trans.importe_credito%></td>
+          <td><%=trans.status%></td>
+          <td><%=@bank.saldo_inicial%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,7 +1,13 @@
 class BanksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :new, :create]
+  skip_before_action :authenticate_user!, only: [ :index, :new, :create, :show]
 
   def index
+    @banks = Bank.all
+  end
+
+  def show
+    @bank = Bank.find(params[:id])
+    @transactions = Transaction.where(bank_id: params[:id]).order(date: :asc)
   end
 
   def new
