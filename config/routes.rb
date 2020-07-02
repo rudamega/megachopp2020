@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :banks do
-    resources :transactions, only: [:new, :create]
-  end
+    resources :extractos, only: [:new, :create]
+    end
+    resources :extractos, only: [:index, :show] do
+      resources :transactions, only: [:new, :create]
+     end
 end

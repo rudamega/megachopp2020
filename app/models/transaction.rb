@@ -1,3 +1,3 @@
 class Transaction < ApplicationRecord
-  belongs_to :bank
+  belongs_to :extracto
 end
