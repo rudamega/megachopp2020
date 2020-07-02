@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :new, :create, :show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [ :index, :new, :create, :show, :edit, :update, :conciliado]
 
   def index
     @transactions = Transaction.all
@@ -27,7 +27,11 @@ class TransactionsController < ApplicationController
   def conciliado
     @transaction = Transaction.find(params[:id])
     @transaction.status = "conciliado"
-    raise
+    if @transaction.save
+      redirect_to transaction_path(params[:id])
+    else
+      redirect_to transaction_path(params[:id])
+    end
   end
 
   def edit
