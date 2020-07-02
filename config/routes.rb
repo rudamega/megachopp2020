@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :extractos, only: [:index, :show] do
       resources :transactions, only: [:new, :create]
      end
+  resources :transactions, only: [:show, :edit, :update]
 end
