@@ -1,5 +1,22 @@
 <div class="container">
-  <h6 class="status text-center"><%=@transaction.status%></h6>
+  <div class="row">
+  <div class="col-6 col-md-4">Estado:</div>
+  <div class="col-6 col-md-4"><h6 class="status3 text-center"><%=@transaction.status%></h6></div>
+</div>
+<div class="row">
+  <div class="col-6 col-md-4">Monto débito:</div>
+  <div class="col-6 col-md-4"><h6 class="status3 text-center"><%=@transaction.importe_debito%></h6></div>
+</div>
+<div class="row">
+  <div class="col-6 col-md-4">Monto crédito:</div>
+  <div class="col-6 col-md-4"><h6 class="status3 text-center"><%=@transaction.importe_credito%></h6></div>
+</div>
+  <% if @transaction.photos.attached? %>
+    <% @transaction.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% end %>
+<button class="btn btn-success"> Conciliar</button>
 </div>
 <div class="accordion" id="accordionExample">
     <div class="card">
@@ -17,3 +34,6 @@
       </div>
     </div>
 </div>
+
+
+

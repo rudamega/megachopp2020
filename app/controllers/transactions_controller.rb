@@ -24,6 +24,12 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def conciliado
+    @transaction = Transaction.find(params[:id])
+    @transaction.status = "conciliado"
+    raise
+  end
+
   def edit
     @transaction = Transaction.find(params[:id])
   end
