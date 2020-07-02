@@ -12,9 +12,11 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(trans_params)
-    @transaction.bank_id = params[:bank_id]
+    @transaction.extracto_id = params[:extracto_id]
     if @transaction.save
-      redirect_to bank_path(params[:bank_id])
+      redirect_to extracto_path(params[:extracto_id])
+    else
+      redirect_to new_extracto_transaction_path(params[:extracto_id])
     end
   end
 

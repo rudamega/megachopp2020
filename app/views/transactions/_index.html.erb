@@ -18,8 +18,8 @@
           <td><%=trans.comprobante %></td>
           <td><%=trans.importe_debito%></td>
           <td><%=trans.importe_credito%></td>
-          <td><%=trans.status%></td>
-          <td><%=@bank.saldo_inicial%></td>
+          <td><h6 class="status text-center"><%=trans.status%></h6></td>
+          <td><%#=@bank.saldo_inicial%></td>
         </tr>
       <% end %>
     </tbody>
