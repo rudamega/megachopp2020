@@ -1,0 +1,17 @@
+<%= link_to "Add nuevo extracto", new_bank_extracto_path(@bank) %>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @extractos.each do |extra| %>
+        <tr>
+          <th scope="row"><%=link_to extra.name, extracto_path(extra)%></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

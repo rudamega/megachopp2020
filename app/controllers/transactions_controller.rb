@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @bank = Bank.find(params[:bank_id])
+    @extracto = Extracto.find(params[:extracto_id])
     @transaction = Transaction.new
   end
 

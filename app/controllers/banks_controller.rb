@@ -7,7 +7,7 @@ class BanksController < ApplicationController
 
   def show
     @bank = Bank.find(params[:id])
-    @transactions = Transaction.where(bank_id: params[:id]).order(date: :asc)
+    @extractos = Extracto.where(bank_id: params[:id])
   end
 
   def new

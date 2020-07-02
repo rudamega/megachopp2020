@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_183342) do
+ActiveRecord::Schema.define(version: 2020_07_02_110426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2020_07_01_183342) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "extractos", force: :cascade do |t|
+    t.string "name"
+    t.bigint "bank_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bank_id"], name: "index_extractos_on_bank_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.date "date"
     t.string "comprobante"
@@ -31,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_183342) do
     t.string "status", default: "no-conciliado"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "bank_id", null: false
-    t.index ["bank_id"], name: "index_transactions_on_bank_id"
+    t.bigint "extracto_id", null: false
+    t.index ["extracto_id"], name: "index_transactions_on_extracto_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +55,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_183342) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "transactions", "banks"
+  add_foreign_key "extractos", "banks"
+  add_foreign_key "transactions", "extractos"
 end
