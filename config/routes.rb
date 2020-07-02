@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       resources :transactions, only: [:new, :create]
      end
   resources :transactions, only: [:show, :edit, :update]
+  get '/conciliado/:id', to: 'transactions#conciliado', as: :conciliado
 end

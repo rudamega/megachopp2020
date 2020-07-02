@@ -1,5 +1,43 @@
 <div class="container">
-  <h6 class="status text-center"><%=@transaction.status%></h6>
+  <div class="row">
+    <div class="col-6 col-md-4">Estado:</div>
+      <% if @transaction.status == "conciliado"%>
+        <div class="col-6 col-md-4"><h6 class="btn btn-success text-center"><%=@transaction.status%></h6></div>
+      <% else %>
+        <div class="col-6 col-md-4"><h6 class="btn btn-danger text-center"><%=@transaction.status%></h6></div>
+      <% end %>
+  </div>
+  <div class="row">
+    <div class="col-6 col-md-4">Monto débito:</div>
+      <% if @transaction.status == "conciliado"%>
+        <div class="col-6 col-md-4"><h6 class="btn btn-success text-center"><%=@transaction.importe_debito%></h6></div>
+      <% else %>
+        <div class="col-6 col-md-4"><h6 class="btn btn-danger text-center"><%=@transaction.importe_debito%></h6></div>
+      <% end %>
+  </div>
+<div class="row">
+  <div class="col-6 col-md-4">Monto crédito:</div>
+    <% if @transaction.status == "conciliado"%>
+      <div class="col-6 col-md-4"><h6 class="btn btn-success text-center"><%=@transaction.importe_credito%></h6></div>
+    <% else%>
+      <div class="col-6 col-md-4"><h6 class="btn btn-danger text-center"><%=@transaction.importe_credito%></h6></div>
+    <% end %>
+</div>
+<div class="row">
+  <div class="col-6 col-md-4">Comprobante</div>
+    <div class="col-6 col-md-4"><h6 class="text-left"><%=@transaction.comprobante%></h6></div>
+</div>
+<div class="row">
+  <div class="col-6 col-md-4">Obs:</div>
+    <div class="col-6 col-md-4"><h6 class="text-left"><%=@transaction.comment%></h6></div>
+</div>
+
+  <% if @transaction.photos.attached? %>
+    <% @transaction.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% end %>
+<h2 class="btn btn-success"><%= link_to "Conciliar", conciliado_path(@transaction)%></h2>
 </div>
 <div class="accordion" id="accordionExample">
     <div class="card">
@@ -17,3 +55,6 @@
       </div>
     </div>
 </div>
+
+
+
