@@ -3,6 +3,8 @@
     <div class="col-12">
       <%= simple_form_for(@transaction) do |f| %>
         <%= f.input :date %>
+        <%= f.input :importe_debito, label: "Debito"%>
+        <%= f.input :importe_credito, label: "Credito"%>
         <%= f.input :comment, label: "Comentario"%>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
