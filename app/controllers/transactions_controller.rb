@@ -47,6 +47,6 @@ class TransactionsController < ApplicationController
 
   private
   def trans_params
-    params.require(:transaction).permit(:date, :comprobante, :importe_debito, :importe_credito, :comment,  photos: [])
+    params.require(:transaction).permit(:date, :comprobante, :importe_debito, :importe_credito, :comment, photos: [])
   end
 end
