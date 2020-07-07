@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
   def new
     @extracto = Extracto.find(params[:extracto_id])
     @transaction = Transaction.new
-    end
+  end
 
   def create
     @transaction = Transaction.new(trans_params)
