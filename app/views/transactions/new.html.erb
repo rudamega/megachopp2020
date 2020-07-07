@@ -4,7 +4,7 @@
       <%= simple_form_for [@extracto, @transaction] do |f| %>
         <%= f.input :date %>
         <%= f.input :comprobante, label: "Description",
-         collection: ["Entre cuentas", "Sipap", "Pago de servicios", "Cobro de cuota", "Deposito en CHEQUE/EFECTIVO"],
+         collection: ["Entre cuentas", "Sipap", "Pago de servicios", "Pago CHEQUE", "Cobro de cuota", "Deposito en CHEQUE/EFECTIVO"],
          prompt: "Seleccione una opcion",
          required: true%>
         <%= f.input :importe_debito, label: "Debito"%>
