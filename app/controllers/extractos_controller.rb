@@ -1,5 +1,5 @@
 class ExtractosController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :new, :create, :show]
+  skip_before_action :authenticate_user!, only: [:index, :new, :create, :show]
 
   def index
     @extractos = Extracto.all
@@ -12,18 +12,17 @@ class ExtractosController < ApplicationController
 
   def show
     @extracto = Extracto.find(params[:id])
-    @transactions = Transaction.where(extracto_id: params[:id])
+    @transactions = Transaction.where(extracto_id: params[:id]).order(date: :asc)
   end
 
   def create
     @extracto = Extracto.new(trans_params)
     @extracto.bank_id = params[:bank_id]
-    if @extracto.save
-      redirect_to bank_path(params[:bank_id])
-    end
+    redirect_to bank_path(params[:bank_id]) if @extracto.save
   end
 
   private
+
   def trans_params
     params.require(:extracto).permit(:name)
   end

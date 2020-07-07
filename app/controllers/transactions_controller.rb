@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :new, :create, :show, :edit, :update, :conciliado]
+  skip_before_action :authenticate_user!, only: [:index, :new, :create, :show, :edit, :update, :conciliado]
 
   def index
     @transactions = Transaction.all

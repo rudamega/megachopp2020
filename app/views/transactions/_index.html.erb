@@ -3,7 +3,7 @@
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab" aria-controls="nav-add" aria-selected="false">Agregar</a>
       <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">NO-Conciliado</a>
-      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Consiliado</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Conciliado</a>
     </div>
 <ul class="list-group">
   <li class="list-group-item">Cantidad de movimientos cargados: <%= @transactions.count %></li>
@@ -31,8 +31,8 @@
               <th scope="col">Credito</th>
               <th scope="col">Estado</th>
               <th scope="col">Saldo</th>
-              <th scope="col">Comentario</th>
               <th scope="col">Accion</th>
+              <th scope="col">Comentario</th>
             </tr>
           </thead>
           <tbody>
@@ -44,8 +44,12 @@
                 <td><%=trans.importe_credito%></td>
                 <td><h6 class="btn btn-danger text-center"><%=trans.status%></h6></td>
                 <td><%#=@bank.saldo_inicial%></td>
-                <td><%= link_to 'Agregar', edit_transaction_path(trans) %></td>
                 <td><%= link_to 'Ver', transaction_path(trans) %></td>
+                <% if trans.comment.nil? %>
+                  <td><%= link_to 'Agregar', edit_transaction_path(trans) %></td>
+                <% else %>
+                <td><%= trans.comment %></td>
+                <% end %>
               </tr>
               </div>
 
@@ -80,7 +84,11 @@
                   <td><%=trans.importe_credito%></td>
                   <td><h6 class="btn btn-success text-center"><%=trans.status%></h6></td>
                   <td><%#=@bank.saldo_inicial%></td>
-                  <td><%=trans.comment%></td>
+                  <% if trans.comment.nil? %>
+                  <td><%= link_to 'Agregar', edit_transaction_path(trans) %></td>
+                <% else %>
+                <td><%= trans.comment %></td>
+                <% end %>
                   <td><%= link_to 'Edit', transaction_path(trans) %></td>
                 </tr>
                 </div>
