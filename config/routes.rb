@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   resources :compros
   get '/conciliado/:id', to: 'transactions#conciliado', as: :conciliado
   get '/conciliados/:id', to: 'compros#conciliado_compros', as: :conciliado_compros
-
+  get '/cargado_por/:id', to: 'compros#cargado_compros', as: :conciliado_compros
 end

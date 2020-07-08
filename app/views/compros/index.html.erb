@@ -16,9 +16,9 @@
               <th scope="col">Monto</th>
               <th scope="col">Comprobante</th>
               <th scope="col">Status</th>
-              <th scope="col">Accion</th>
               <th scope="col">Creado por</th>
               <th scope="col">Consiliado por</th>
+              <th scope="col">Cargado en el sys por</th>
             </tr>
           </thead>
           <tbody>
@@ -34,12 +34,15 @@
                  <td> <%= "Cargar Compro" %> </td>
                 <% end %>
                 <% if compro.status == "no-conciliado" %>
-                  <td><h6 class="btn btn-danger text-center"><%=compro.status%></h6></td>
+                  <td>
+                    <%= link_to conciliado_compros_path(compro), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                    <h6 class="btn btn-danger text-center"><%=compro.status%></h6>
+                    <% end %>
+                  </td>
                 <% else %>
                   <td><h6 class="btn btn-success text-center"><%=compro.status%></h6></td>
-
                 <% end %>
-                <td><%= link_to "Conciliar", conciliado_compros_path(compro), data: {confirm: "Deseas confirmar esta operacion??"}%></td>
+                <td>Creado por..</td>
                 <td>Creado por..</td>
                 <td>Creado por..</td>
               </tr>
