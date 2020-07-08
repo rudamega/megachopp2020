@@ -1,5 +1,4 @@
 class ComprosController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new, :create, :show, :conciliado_compros]
   def index
     @compros = Compro.all.order(id: :desc).limit(25)
   end
@@ -11,6 +10,7 @@ class ComprosController < ApplicationController
   def create
     @compro = Compro.new(compros_params)
     @compro.nro = Compro.last.id + 1
+    @compro.creado_por = current_user.name
     if @compro.save
       redirect_to root_path
     end
@@ -27,6 +27,14 @@ class ComprosController < ApplicationController
   def conciliado_compros
     @compro = Compro.find(params[:id])
     @compro.status = "Conciliado"
+    @compro.conciliado_por = current_user.name
+    @compro.save
+    redirect_to compros_path
+  end
+
+  def cargado_compros
+    @compro = Compro.find(params[:id])
+    @compro.cargado_por = current_user.name
     @compro.save
     redirect_to compros_path
   end
