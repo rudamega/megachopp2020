@@ -1,6 +1,12 @@
 class ComprosController < ApplicationController
   def index
-    @compros = Compro.all.order(id: :desc).limit(25)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR nro ILIKE :query"
+      @compros = Compro.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @compros = Compro.all.order(id: :desc).limit(25)
+    end
+
   end
 
   def new
@@ -9,7 +15,6 @@ class ComprosController < ApplicationController
 
   def create
     @compro = Compro.new(compros_params)
-    @compro.nro = Compro.last.id + 1
     @compro.creado_por = current_user.name
     if @compro.save
       redirect_to root_path
@@ -21,7 +26,13 @@ class ComprosController < ApplicationController
   end
 
   def update
-
+    @compro = Compro.find(params[:id])
+    @compro.nro = "#{@compro.id + 1} - #{params[:compro][:nro]}"
+    if @compro.save
+      redirect_to compros_path
+    else
+      render 'edit'
+    end
   end
 
   def conciliado_compros
@@ -42,7 +53,7 @@ class ComprosController < ApplicationController
   private
 
   def compros_params
-    params.require(:compro).permit(:name, :comment, :monto, :image)
+    params.require(:compro).permit(:name, :comment, :monto, :image, :nro)
   end
 
 end
