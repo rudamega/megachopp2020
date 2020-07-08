@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Carga de comprobantes</h3>
+
+      <%= simple_form_for(@compro) do |f| %>
+        <%= f.input :name, label: "Quien envia?"%>
+        <%= f.input :comment, label: "Colocar aqui a que reserva corresponde o a que hab."%>
+        <%= f.input :monto, label: "Monto"%>
+        <%= f.input :image, as: :file, label: "Subir comprobante" %>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Guardar"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

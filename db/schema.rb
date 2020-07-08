@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_181946) do
+ActiveRecord::Schema.define(version: 2020_07_08_184636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(version: 2020_07_02_181946) do
     t.float "saldo_inicial", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "compro", force: :cascade do |t|
+    t.string "comment"
+    t.string "name"
+    t.string "status", default: "no-conciliado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "compros", force: :cascade do |t|
+    t.string "comment"
+    t.string "name"
+    t.string "status", default: "no-conciliado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "nro"
+    t.string "monto"
   end
 
   create_table "extractos", force: :cascade do |t|
