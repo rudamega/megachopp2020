@@ -5,7 +5,9 @@
 
       <%= simple_form_for(@compro) do |f| %>
         <%= f.input :nro, label: "Nro de Comprobante en el extracto del banco"%>
-        <%= f.input :image, as: :file, label: "Subir comprobante" %>
+        <% if !@compro.image.attached? %>
+          <%= f.input :image, as: :file, label: "Subir comprobante" %>
+        <% end %>
         <div class="d-flex justify-content-center">
         <%= f.submit "Guardar"%>
         </div>

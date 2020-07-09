@@ -41,7 +41,7 @@
                 <%if compro.image.attached? %>
                   <td><%=link_to "Ver comprobante", "https://res.cloudinary.com/dpjghjtp1/image/upload/v1594152130/#{compro.image.key}.jpg", target: :_blank%></td>
                 <% else %>
-                 <td> <%= "Cargar Compro" %> </td>
+                 <td> <%= "Sin compro" %> </td>
                 <% end %>
                 <% if compro.status == "no-conciliado" %>
                   <td>
