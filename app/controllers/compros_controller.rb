@@ -6,7 +6,6 @@ class ComprosController < ApplicationController
     else
       @compros = Compro.all.order(id: :desc).limit(25)
     end
-
   end
 
   def new
@@ -17,8 +16,10 @@ class ComprosController < ApplicationController
     @compro = Compro.new(compros_params)
     @compro.creado_por = current_user.name
     if @compro.save
-      redirect_to root_path
+      mail = UserMailer.compro(@compro)
+      mail.deliver_later
     end
+      redirect_to root_path
   end
 
   def edit
@@ -39,7 +40,10 @@ class ComprosController < ApplicationController
     @compro = Compro.find(params[:id])
     @compro.status = "Conciliado"
     @compro.conciliado_por = current_user.name
-    @compro.save
+    if @compro.save
+      mail = UserMailer.conciliado(@compro)
+      mail.deliver_later
+    end
     redirect_to compros_path
   end
 

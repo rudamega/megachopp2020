@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Megachopp2020</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+      Favor confirmar esta transferencia/deposito.
+      <ul class="list-group">
+      <li class="list-group-item">Enviado por : <%=@compro.name%></li>
+      <li class="list-group-item">Para habitación/reserva: <%= @compro.comment%></li>
+      <li class="list-group-item">Monto: <%=@compro.monto %></li>
+      <li class="list-group-item">Estado: <%=@compro.status %></li>
+      <% if @compro.image.attached? %>
+        <li class="list-group-item">Comprobante:<%=link_to "Ver comprobante", "https://res.cloudinary.com/dpjghjtp1/image/upload/v1594152130/#{@compro.image.key}.jpg", target: :_blank%></li>
+        <% else %>
+        NO TIENE COMPROBANTE
+      <% end %>
+    </ul>
+    </div>
+ </body>
+</html>
+
