@@ -12,7 +12,7 @@ class ExtractosController < ApplicationController
 
   def show
     @extracto = Extracto.find(params[:id])
-    @transactions = Transaction.where(extracto_id: params[:id]).order(date: :asc)
+    @transactions = Transaction.where(extracto_id: params[:id]).order(created_at: :asc)
     @transaction = Transaction.new
   end
 
