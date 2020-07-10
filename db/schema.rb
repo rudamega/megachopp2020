@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_202131) do
+ActiveRecord::Schema.define(version: 2020_07_10_155212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(version: 2020_07_08_202131) do
     t.index ["bank_id"], name: "index_extractos_on_bank_id"
   end
 
+  create_table "items_imports", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.date "date"
     t.string "comprobante"
@@ -83,6 +88,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_202131) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "extracto_id", null: false
     t.string "comment"
+    t.string "movimiento"
+    t.string "fecha"
     t.index ["extracto_id"], name: "index_transactions_on_extracto_id"
   end
 

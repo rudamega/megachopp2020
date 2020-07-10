@@ -1,3 +1,4 @@
+
 <div class="container">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -15,6 +16,11 @@
         <div style="overflow-x:auto;">
           <div class="text-center m-5">
             <%= link_to "Cargar movimiento", new_extracto_transaction_path(@extracto), class: "btn btn-success text-center"%>
+            <h5>Select File</h5>
+            <%= form_for [@extracto, @transaction] do |f| %>
+              <%= f.file_field :file %>
+              <%= f.submit "Import File" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -26,11 +32,11 @@
           <thead>
             <tr>
               <th scope="col">Fecha</th>
-              <th scope="col">Descripcion</th>
+              <th scope="col">MOVIMIENTO</th>
+              <th scope="col">DESCRIPCION</th>
               <th scope="col">Debito</th>
               <th scope="col">Credito</th>
               <th scope="col">Estado</th>
-              <th scope="col">Saldo</th>
               <th scope="col">Accion</th>
               <th scope="col">Comentario</th>
             </tr>
@@ -38,18 +44,18 @@
           <tbody>
             <% @transactions.where(status: "no-conciliado").each do |trans| %>
               <tr>
-                <td><%=trans.date%></td>
-                <td><%=trans.comprobante %></td>
-                <td><%=trans.importe_debito%></td>
-                <td><%=trans.importe_credito%></td>
-                <td><h6 class="btn btn-danger text-center"><%=trans.status%></h6></td>
-                <td><%#=@bank.saldo_inicial%></td>
-                <td><%= link_to 'Ver', transaction_path(trans) %></td>
+                <td><%=trans.fecha%></td>
+                <td><%=trans.movimiento %></td>
                 <% if trans.comment.nil? %>
                   <td><%= link_to 'Agregar', edit_transaction_path(trans) %></td>
                 <% else %>
                 <td><%= trans.comment %></td>
                 <% end %>
+                <td><%=trans.importe_debito%></td>
+                <td><%=trans.importe_credito%></td>
+                <td><h6 class="btn btn-danger text-center"><%=trans.status%></h6></td>
+                <td><%= link_to 'Ver', transaction_path(trans) %></td>
+                <td><%=trans.comprobante%></td>
               </tr>
               </div>
 
@@ -66,30 +72,30 @@
             <thead>
               <tr>
                 <th scope="col">Fecha</th>
-                <th scope="col">Descripcion</th>
+                <th scope="col">MOVIMIENTO</th>
+                <th scope="col">DESCRIPCION</th>
                 <th scope="col">Debito</th>
                 <th scope="col">Credito</th>
                 <th scope="col">Estado</th>
-                <th scope="col">Saldo</th>
-                <th scope="col">Comentario</th>
                 <th scope="col">Accion</th>
+                <th scope="col">Comentario</th>
               </tr>
             </thead>
             <tbody>
               <% @transactions.where(status: "conciliado").each do |trans| %>
                 <tr>
-                  <td><%=trans.date%></td>
-                  <td><%=trans.comprobante %></td>
-                  <td><%=trans.importe_debito%></td>
-                  <td><%=trans.importe_credito%></td>
-                  <td><h6 class="btn btn-success text-center"><%=trans.status%></h6></td>
-                  <td><%#=@bank.saldo_inicial%></td>
+                  <td><%=trans.fecha%></td>
+                  <td><%=trans.movimiento %></td>
                   <% if trans.comment.nil? %>
                   <td><%= link_to 'Agregar', edit_transaction_path(trans) %></td>
                 <% else %>
                 <td><%= trans.comment %></td>
                 <% end %>
+                  <td><%=trans.importe_debito%></td>
+                  <td><%=trans.importe_credito%></td>
+                  <td><h6 class="btn btn-success text-center"><%=trans.status%></h6></td>
                   <td><%= link_to 'Edit', transaction_path(trans) %></td>
+                  <td><%=trans.comprobante%></td>
                 </tr>
                 </div>
               <% end %>
