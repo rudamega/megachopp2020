@@ -83,6 +83,7 @@
                 <th scope="col">Estado</th>
                 <th scope="col">Accion</th>
                 <th scope="col">Comentario</th>
+                <th scope="col">Conciliado por </th>
               </tr>
             </thead>
             <tbody>
@@ -100,6 +101,11 @@
                   <td><h6 class="btn btn-success text-center"><%=trans.status%></h6></td>
                   <td><%= link_to 'Edit', transaction_path(trans) %></td>
                   <td><%=trans.comprobante%></td>
+                  <% if trans.conciliado_por.nil? %>
+                  <td></td>
+                  <% else %>
+                  <td><%=trans.conciliado_por.upcase%></td>
+                  <% end %>
                 </tr>
                 </div>
               <% end %>
