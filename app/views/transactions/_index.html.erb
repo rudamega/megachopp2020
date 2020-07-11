@@ -101,7 +101,11 @@
                   <td><h6 class="btn btn-success text-center"><%=trans.status%></h6></td>
                   <td><%= link_to 'Edit', transaction_path(trans) %></td>
                   <td><%=trans.comprobante%></td>
-                  <td><%=trans.comprobante%></td>
+                  <% if trans.conciliado_por.nil? %>
+                  <td></td>
+                  <% else %>
+                  <td><%=trans.conciliado_por.upcase%></td>
+                  <% end %>
                 </tr>
                 </div>
               <% end %>

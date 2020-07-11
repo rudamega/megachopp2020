@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_131203) do
+ActiveRecord::Schema.define(version: 2020_07_11_180100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_131203) do
     t.string "comment"
     t.string "movimiento"
     t.string "fecha"
+    t.string "conciliado_por"
     t.index ["extracto_id"], name: "index_transactions_on_extracto_id"
   end
 

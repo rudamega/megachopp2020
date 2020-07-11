@@ -33,6 +33,7 @@ class TransactionsController < ApplicationController
   def conciliado
     @transaction = Transaction.find(params[:id])
     @transaction.status = "conciliado"
+    @transaction.conciliado_por = current_user.name
     if @transaction.save
       redirect_to transaction_path(params[:id])
     else
