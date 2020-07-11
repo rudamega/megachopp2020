@@ -22,9 +22,12 @@ class TransactionsController < ApplicationController
         redirect_to extracto_path(params[:extracto_id])
       else
         redirect_to new_extracto_transaction_path(params[:extracto_id])
+        raise
       end
     end
-    extract_file(params[:transaction][:file], params[:extracto_id])
+    if !params[:transaction][:file].nil?
+      extract_file(params[:transaction][:file], params[:extracto_id])
+    end
   end
 
   def conciliado
