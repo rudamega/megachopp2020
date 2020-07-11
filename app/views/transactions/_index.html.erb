@@ -83,6 +83,7 @@
                 <th scope="col">Estado</th>
                 <th scope="col">Accion</th>
                 <th scope="col">Comentario</th>
+                <th scope="col">Conciliado por </th>
               </tr>
             </thead>
             <tbody>
@@ -99,6 +100,7 @@
                   <td><%=trans.importe_credito%></td>
                   <td><h6 class="btn btn-success text-center"><%=trans.status%></h6></td>
                   <td><%= link_to 'Edit', transaction_path(trans) %></td>
+                  <td><%=trans.comprobante%></td>
                   <td><%=trans.comprobante%></td>
                 </tr>
                 </div>
