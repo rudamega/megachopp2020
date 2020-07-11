@@ -46,14 +46,18 @@
                 <% if compro.status == "no-conciliado" %>
                   <td>
                     <%= link_to conciliado_compros_path(compro), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
-                    <h6 class="btn btn-danger text-center"><%=compro.status%></h6>
+                    <h6 class="btn btn-danger text-center">Conciliar</h6>
                     <% end %>
                   </td>
                 <% else %>
                   <td><h6 class="btn btn-success text-center"><%=compro.status%></h6></td>
                 <% end %>
-                <td><%=compro.creado_por%></td>
-                <td><%=compro.conciliado_por%></td>
+                <td><%=compro.creado_por.upcase%></td>
+                <% if compro.conciliado_por.nil? %>
+                  <td></td>
+                  <% else %>
+                <td><%=compro.conciliado_por.upcase%></td>
+                <% end %>
                 <% if compro.cargado_por.nil? %>
                   <td>
                     <%= link_to cargado_por_path(compro), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
@@ -61,7 +65,7 @@
                     <% end %>
                   </td>
                 <% else %>
-                  <td><%= compro.cargado_por%></td>
+                  <td><%= compro.cargado_por.upcase%></td>
                 <% end %>
 
               </tr>

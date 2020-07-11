@@ -53,7 +53,11 @@
                 <% end %>
                 <td><%=trans.importe_debito%></td>
                 <td><%=trans.importe_credito%></td>
-                <td><h6 class="btn btn-danger text-center"><%=trans.status%></h6></td>
+                  <td>
+                    <%= link_to conciliado_path(trans), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                    <h6 class="btn btn-danger text-center"><%=trans.status%></h6>
+                    <% end %>
+                  </td>
                 <td><%= link_to 'Ver', transaction_path(trans) %></td>
                 <td><%=trans.comprobante%></td>
               </tr>

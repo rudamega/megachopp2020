@@ -24,12 +24,18 @@
     <% end %>
 </div>
 <div class="row">
-  <div class="col-6 col-md-4">Comprobante</div>
+  <div class="col-6 col-md-4">Comentario</div>
     <div class="col-6 col-md-4"><h6 class="text-left"><%=@transaction.comprobante%></h6></div>
 </div>
+
 <div class="row">
-  <div class="col-6 col-md-4">Obs:</div>
+  <div class="col-6 col-md-4">Descripcion: </div>
     <div class="col-6 col-md-4"><h6 class="text-left"><%=@transaction.comment%></h6></div>
+</div>
+
+<div class="row">
+  <div class="col-6 col-md-4">Movimiento</div>
+    <div class="col-6 col-md-4"><h6 class="text-left"><%=@transaction.movimiento%></h6></div>
 </div>
 
   <% if @transaction.photos.attached? %>
