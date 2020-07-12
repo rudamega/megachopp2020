@@ -16,7 +16,7 @@ class UserMailer < ApplicationMailer
 
   def compro(compro)
     @compro = compro
-    mail to: "administracion.com.py", subject: "Favor conciliar - #{@compro.name} - Monto: #{compro.monto}"
+    mail to: "administracion@hotelmegal.com.py", subject: "Favor conciliar - #{@compro.name} - Monto: #{compro.monto}"
   end
 
   def conciliado(compro)
