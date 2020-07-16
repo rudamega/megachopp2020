@@ -6,9 +6,9 @@
       </tr>
     </thead>
     <tbody>
-      <% @extractos.each do |extra| %>
+      <% @cheques.each do |chequera| %>
         <tr>
-          <th scope="row"><%=link_to extra.name, extracto_path(extra)%></th>
+          <th scope="row"><%=link_to chequera.name, cheque_path(chequera)%></th>
         </tr>
       <% end %>
     </tbody>

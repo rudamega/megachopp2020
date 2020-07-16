@@ -1,1 +1,40 @@
-<%= render 'extractos/index' %>
+<div class="container">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab" aria-controls="nav-add" aria-selected="false">Agregar</a>
+      <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Extractos</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Chequeras</a>
+    </div>
+<ul class="list-group">
+  <li class="list-group-item">Cantidad de Cheques disponibles: <%#= @transactions.count %></li>
+</ul>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div style="overflow-x:auto;">
+          <div class="text-center m-5">
+            <%= link_to "Add nuevo extracto", new_bank_extracto_path(@bank), class: "btn btn-success text-center" %>
+            <%= link_to "Adicionar nueva chequera", new_bank_cheque_path(@bank), class: "btn btn-success text-center" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div style="overflow-x:auto;">
+          <%= render 'extractos/index' %>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div style="overflow-x:auto;">
+          <%= render 'cheques/index' %>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

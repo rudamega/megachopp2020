@@ -8,6 +8,7 @@ class BanksController < ApplicationController
   def show
     @bank = Bank.find(params[:id])
     @extractos = Extracto.where(bank_id: params[:id])
+    @cheques = Cheque.where(bank_id: params[:id])
   end
 
   def new
