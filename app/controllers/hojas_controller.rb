@@ -31,6 +31,7 @@ class HojasController < ApplicationController
   def compensado
     @hoja = Hoja.find(params[:id])
     @hoja.compensado = "si"
+    @hoja.compensado_por = current_user.name.capitalize
     redirect_to cheque_path(@hoja.cheque_id) if @hoja.save
   end
 

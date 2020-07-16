@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_150325) do
+ActiveRecord::Schema.define(version: 2020_07_16_182359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_150325) do
     t.string "compensado", default: "no"
     t.string "aprobado_por"
     t.string "description"
+    t.string "compensado_por"
     t.index ["cheque_id"], name: "index_hojas_on_cheque_id"
   end
 
