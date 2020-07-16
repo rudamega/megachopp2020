@@ -28,6 +28,12 @@ class HojasController < ApplicationController
     redirect_to cheque_path(@hoja.cheque_id) if @hoja.save
   end
 
+  def compensado
+    @hoja = Hoja.find(params[:id])
+    @hoja.compensado = "si"
+    redirect_to cheque_path(@hoja.cheque_id) if @hoja.save
+  end
+
   private
 
   def hojas_params
