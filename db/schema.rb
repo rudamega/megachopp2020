@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_180100) do
+ActiveRecord::Schema.define(version: 2020_07_16_150325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2020_07_11_180100) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "cheques", force: :cascade do |t|
+    t.string "name"
+    t.string "nro_inicial"
+    t.string "nro_final"
+    t.bigint "bank_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bank_id"], name: "index_cheques_on_bank_id"
+  end
+
   create_table "compro", force: :cascade do |t|
     t.string "comment"
     t.string "name"
@@ -71,6 +81,20 @@ ActiveRecord::Schema.define(version: 2020_07_11_180100) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bank_id"], name: "index_extractos_on_bank_id"
+  end
+
+  create_table "hojas", force: :cascade do |t|
+    t.integer "nro"
+    t.bigint "cheque_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "monto"
+    t.string "fecha_pago"
+    t.string "aprobado", default: "no"
+    t.string "compensado", default: "no"
+    t.string "aprobado_por"
+    t.string "description"
+    t.index ["cheque_id"], name: "index_hojas_on_cheque_id"
   end
 
   create_table "items_imports", force: :cascade do |t|
@@ -109,6 +133,8 @@ ActiveRecord::Schema.define(version: 2020_07_11_180100) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cheques", "banks"
   add_foreign_key "extractos", "banks"
+  add_foreign_key "hojas", "cheques"
   add_foreign_key "transactions", "extractos"
 end
