@@ -1,0 +1,262 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>Bolsas</td>
+          <td>
+            <% if @habitacion.bolsas == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.bolsas%></h6>
+              <% else %>
+                <%= link_to bolsas_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.bolsas%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Jabon en polvo</td>
+          <td>
+            <% if @habitacion.jabon_en_polvo == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.jabon_en_polvo%></h6>
+              <% else %>
+                <%= link_to jabon_en_polvo_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.jabon_en_polvo%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Jabon en Pan</td>
+          <td>
+            <% if @habitacion.jabon_en_pan == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.jabon_en_pan%></h6>
+              <% else %>
+                <%= link_to jabon_en_pan_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.jabon_en_pan%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Franela</td>
+          <td>
+            <% if @habitacion.franela == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.franela%></h6>
+              <% else %>
+                <%= link_to franela_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.franela%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Trapo</td>
+          <td>
+            <% if @habitacion.trapo == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.trapo%></h6>
+              <% else %>
+                <%= link_to trapos_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.trapo%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Latona</td>
+          <td>
+            <% if @habitacion.latona == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.latona%></h6>
+              <% else %>
+                <%= link_to latona_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.latona%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Escoba</td>
+          <td>
+            <% if @habitacion.escoba == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.escoba%></h6>
+              <% else %>
+                <%= link_to escoba_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.escoba%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Alcohol</td>
+          <td>
+            <% if @habitacion.alcohol == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.alcohol%></h6>
+              <% else %>
+                <%= link_to alcohol_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.alcohol%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Muda sabana</td>
+          <td>
+            <% if @habitacion.muda_sabana == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.muda_sabana%></h6>
+              <% else %>
+                <%= link_to muda_sabana_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.muda_sabana%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Tiene transformar el termo de agua caliente?</td>
+          <td>
+            <% if @habitacion.termo_transformador == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.termo_transformador%></h6>
+              <% else %>
+                <%= link_to transformador_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.termo_transformador%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Alzar Agua?</td>
+          <td>
+            <% if @habitacion.alzar_agua == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.alzar_agua%></h6>
+              <% else %>
+                <%= link_to agua_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.alzar_agua%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Esta el frigobar limpio?</td>
+          <td>
+            <% if @habitacion.frigobar_limpio == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frigobar_limpio%></h6>
+              <% else %>
+                <%= link_to frigabar_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.frigobar_limpio%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>1 Papel extra?</td>
+          <td>
+            <% if @habitacion.papel_extra == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.papel_extra%></h6>
+              <% else %>
+                <%= link_to papel_extra_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.papel_extra%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Frazada?</td>
+          <td>
+            <% if @habitacion.frazada == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frazada%></h6>
+              <% else %>
+                <%= link_to frazada_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.frazada%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Si la habitacion es para 2 personas cama matrimonial</td>
+          <td>
+            <% if @habitacion.cama_matrimonial == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frazada%></h6>
+              <% else %>
+                <%= link_to cama_matrimonial_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.cama_matrimonial%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Hay toalla de repuesto?</td>
+          <td>
+            <% if @habitacion.muda_toalla == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frazada%></h6>
+              <% else %>
+                <%= link_to muda_toalla_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.muda_toalla%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Hay toalla de piso?</td>
+          <td>
+            <% if @habitacion.toalla_piso == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frazada%></h6>
+              <% else %>
+                <%= link_to toalla_piso_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.toalla_piso%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Hay toalla de rostro?</td>
+          <td>
+            <% if @habitacion.toalla_rostro == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frazada%></h6>
+              <% else %>
+                <%= link_to toalla_rostro_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.toalla_rostro%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Hay toallas de cuerpo?</td>
+          <td>
+            <% if @habitacion.toallas_cuerpo == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frazada%></h6>
+              <% else %>
+                <%= link_to toalla_cuerpo_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.toallas_cuerpo%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Se paso el trapo por la cabecera? Esta limpio?</td>
+          <td>
+            <% if @habitacion.pasar_trapo_cabecera == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.frazada%></h6>
+              <% else %>
+                <%= link_to trapo_cabezera_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.pasar_trapo_cabecera%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+      <tr>
+        <td>Se paso el trapo por la ventana? Esta limpio?</td>
+          <td>
+            <% if @habitacion.pasar_trapo_ventana == "si" %>
+              <h6 class="btn btn-success text-center"><%=@habitacion.pasar_trapo_ventana%></h6>
+              <% else %>
+                <%= link_to trapo_ventana_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                  <h6 class="btn btn-danger text-center"><%=@habitacion.pasar_trapo_ventana%></h6>
+                <% end %>
+            <% end %>
+          </td>
+      </tr>
+  </tbody>
+</table>

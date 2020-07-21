@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <%= simple_form_for(@habitacion) do |f| %>
+        <%= f.input :name, label: "Numero de la habitacion"%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Crear habitacion"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
