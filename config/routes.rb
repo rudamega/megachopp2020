@@ -45,4 +45,5 @@ Rails.application.routes.draw do
   get '/toalla_piso/:id', to: 'habitacions#toalla_piso', as: :toalla_piso
   get '/muda_toalla/:id', to: 'habitacions#muda_toalla', as: :muda_toalla
   get '/cama_matrimonial/:id', to: 'habitacions#cama_matrimonial', as: :cama_matrimonial
+  get '/liberar/:id', to: 'habitacions#liberar', as: :liberar
 end
