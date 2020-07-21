@@ -130,7 +130,7 @@
         </td>
     </tr>
     <tr>
-      <td>Alzar Agua?</td>
+      <td> 1 - Bidon de agua. Esta listo como para utilizar?</td>
         <td>
           <% if @habitacion.alzar_agua == "si" %>
             <h6 class="btn btn-success text-center"><%=@habitacion.alzar_agua%></h6>
@@ -257,6 +257,102 @@
             <% else %>
               <%= link_to trapo_ventana_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
                 <h6 class="btn btn-danger text-center"><%=@habitacion.pasar_trapo_ventana%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Porta bidon</td>
+        <td>
+          <% if @habitacion.porta_bidon == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.porta_bidon%></h6>
+            <% else %>
+              <%= link_to porta_bidon_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.porta_bidon%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Detergente</td>
+        <td>
+          <% if @habitacion.detergente == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.detergente%></h6>
+            <% else %>
+              <%= link_to detergente_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.detergente%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Esponja</td>
+        <td>
+          <% if @habitacion.esponja == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.esponja%></h6>
+            <% else %>
+              <%= link_to esponja_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.esponja%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Palo de piso</td>
+        <td>
+          <% if @habitacion.palo_de_piso == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.palo_de_piso%></h6>
+            <% else %>
+              <%= link_to palo_de_piso_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.palo_de_piso%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Juego de tasa de cafe</td>
+        <td>
+          <% if @habitacion.tasa == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.tasa%></h6>
+            <% else %>
+              <%= link_to tasa_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.tasa%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Baso de azucar ?</td>
+        <td>
+          <% if @habitacion.azucar == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.azucar%></h6>
+            <% else %>
+              <%= link_to azucar_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.azucar%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Baso de vidrio?</td>
+        <td>
+          <% if @habitacion.baso == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.baso%></h6>
+            <% else %>
+              <%= link_to baso_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.baso%></h6>
+              <% end %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td>1 - Lavandina</td>
+        <td>
+          <% if @habitacion.lavandina == "si" %>
+            <h6 class="btn btn-success text-center"><%=@habitacion.lavandina%></h6>
+            <% else %>
+              <%= link_to lavandina_path(@habitacion), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                <h6 class="btn btn-danger text-center"><%=@habitacion.lavandina%></h6>
               <% end %>
           <% end %>
         </td>

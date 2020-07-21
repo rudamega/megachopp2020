@@ -142,6 +142,54 @@ class HabitacionsController < ApplicationController
     redirect_to habitacion_path(@habitacion) if @habitacion.save
   end
 
+  def porta_bidon
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.porta_bidon = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
+  def detergente
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.detergente = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
+  def esponja
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.esponja = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
+  def palo_de_piso
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.palo_de_piso = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
+  def tasa
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.tasa = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
+  def baso
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.baso = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
+  def azucar
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.azucar = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
+  def lavandina
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.lavandina = "si"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
   def liberar
     @habitacion = Habitacion.find(params[:id])
     @habitacion.bolsas = "no"

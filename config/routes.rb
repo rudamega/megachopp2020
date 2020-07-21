@@ -46,4 +46,13 @@ Rails.application.routes.draw do
   get '/muda_toalla/:id', to: 'habitacions#muda_toalla', as: :muda_toalla
   get '/cama_matrimonial/:id', to: 'habitacions#cama_matrimonial', as: :cama_matrimonial
   get '/liberar/:id', to: 'habitacions#liberar', as: :liberar
+  get '/porta_bidon/:id', to: 'habitacions#porta_bidon', as: :porta_bidon
+  get '/detergente/:id', to: 'habitacions#detergente', as: :detergente
+  get '/esponja/:id', to: 'habitacions#esponja', as: :esponja
+  get '/palo_de_piso/:id', to: 'habitacions#palo_de_piso', as: :palo_de_piso
+  get '/tasa/:id', to: 'habitacions#tasa', as: :tasa
+  get '/baso/:id', to: 'habitacions#baso', as: :baso
+  get '/azucar/:id', to: 'habitacions#azucar', as: :azucar
+  get '/lavandina/:id', to: 'habitacions#lavandina', as: :lavandina
+
 end
