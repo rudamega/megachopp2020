@@ -19,8 +19,7 @@ class HabitacionsController < ApplicationController
   def bolsas
     @habitacion = Habitacion.find(params[:id])
     @habitacion.bolsas = "si"
-    redirect_to habitacion_path(habitacion) if @habitacion.save
-
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
   end
 
   def jabon_en_polvo
@@ -142,6 +141,34 @@ class HabitacionsController < ApplicationController
     @habitacion.cama_matrimonial = "si"
     redirect_to habitacion_path(@habitacion) if @habitacion.save
   end
+
+  def liberar
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.bolsas = "no"
+    @habitacion.jabon_en_polvo = "no"
+    @habitacion.jabon_en_pan = "no"
+    @habitacion.franela = "no"
+    @habitacion.trapo = "no"
+    @habitacion.latona = "no"
+    @habitacion.escoba = "no"
+    @habitacion.alcohol = "no"
+    @habitacion.muda_sabana = "no"
+    @habitacion.cama_matrimonial = "no"
+    @habitacion.toalla_piso = "no"
+    @habitacion.muda_toalla = "no"
+    @habitacion.toalla_piso = "no"
+    @habitacion.pasar_trapo_cabecera = "no"
+    @habitacion.toallas_cuerpo = "no"
+    @habitacion.toalla_rostro = "no"
+    @habitacion.termo_transformador = "no"
+    @habitacion.alzar_agua = "no"
+    @habitacion.frazada = "no"
+    @habitacion.papel_extra = "no"
+    @habitacion.frigobar_limpio = "no"
+    @habitacion.pasar_trapo_ventana = "no"
+    redirect_to habitacion_path(@habitacion) if @habitacion.save
+  end
+
 
   private
 
