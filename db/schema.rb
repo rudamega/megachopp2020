@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_182359) do
+ActiveRecord::Schema.define(version: 2020_07_20_215314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,33 @@ ActiveRecord::Schema.define(version: 2020_07_16_182359) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bank_id"], name: "index_extractos_on_bank_id"
+  end
+
+  create_table "habitacions", force: :cascade do |t|
+    t.string "bolsas", default: "no"
+    t.string "jabon_en_polvo", default: "no"
+    t.string "jabon_en_pan", default: "no"
+    t.string "franela", default: "no"
+    t.string "trapo", default: "no"
+    t.string "latona", default: "no"
+    t.string "escoba", default: "no"
+    t.string "alcohol", default: "no"
+    t.string "termo_transformador", default: "no"
+    t.string "muda_sabana", default: "no"
+    t.string "alzar_agua", default: "no"
+    t.string "frazada", default: "no"
+    t.string "papel_extra", default: "no"
+    t.string "frigobar_limpio", default: "no"
+    t.string "pasar_trapo_ventana", default: "no"
+    t.string "pasar_trapo_cabecera", default: "no"
+    t.string "toallas_cuerpo", default: "no"
+    t.string "toalla_rostro", default: "no"
+    t.string "toalla_piso", default: "no"
+    t.string "muda_toalla", default: "no"
+    t.string "cama_matrimonial", default: "no"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "hojas", force: :cascade do |t|

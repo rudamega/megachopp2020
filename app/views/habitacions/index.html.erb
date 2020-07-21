@@ -1,0 +1,8 @@
+
+<ul>
+  <%@habitaciones.each do |habitacion|%>
+    <%= link_to habitacion_path(habitacion) do %>
+      <li><%=habitacion.name%></li>
+    <% end %>
+  <% end %>
+</ul>
