@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Gasto Fijo</h3>
+      <%= simple_form_for [@month, @fijo] do |f| %>
+        <%= f.input :name, label: "Nombre"%>
+        <%= f.input :amount, label: "Monto"%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Crear Mes"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

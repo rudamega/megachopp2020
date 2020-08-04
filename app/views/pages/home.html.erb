@@ -1,3 +1,7 @@
+<% if !current_user.nil? %>
+  <%= current_user.rol %>
+<% end %>
+
 <%= link_to banks_path do %>
 <h1>Bancos</h1>
 <% end %>
@@ -5,10 +9,15 @@
 <%= link_to compros_path do %>
 <h1>Comprobantes de depositos</h1>
 <% end %>
-
-<%= link_to compros_path do %>
-<h1>Cheques</h1>
+<% if !current_user.nil? %>
+  <% if current_user.rol == "admin" %>
+  <%= link_to months_path do %>
+    <h1>Costo Fijo - Mega Chopp </h1>
 <% end %>
+<% end %>
+
+<% end %>
+
 
 <%= link_to habitacions_path do %>
 <h1>Check List de habitaciones</h1>

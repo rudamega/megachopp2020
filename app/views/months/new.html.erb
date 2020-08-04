@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Nuevo Mes</h3>
+      <%= simple_form_for(@month) do |f| %>
+        <%= f.input :name, label: "Nombre"%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Crear Mes"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

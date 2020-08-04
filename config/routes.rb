@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :months do
+    resources :fijos, only: [:new, :create]
+  end
+
   resources :banks do
     resources :extractos, only: [:new, :create]
     resources :cheques, only: [:new, :create]
