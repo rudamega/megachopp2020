@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_123925) do
+ActiveRecord::Schema.define(version: 2020_07_31_191519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,16 @@ ActiveRecord::Schema.define(version: 2020_07_21_123925) do
     t.index ["bank_id"], name: "index_extractos_on_bank_id"
   end
 
+  create_table "fijos", force: :cascade do |t|
+    t.string "name"
+    t.string "amount"
+    t.string "status", default: ""
+    t.bigint "month_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["month_id"], name: "index_fijos_on_month_id"
+  end
+
   create_table "habitacions", force: :cascade do |t|
     t.string "bolsas", default: "no"
     t.string "jabon_en_polvo", default: "no"
@@ -138,6 +148,12 @@ ActiveRecord::Schema.define(version: 2020_07_21_123925) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "months", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.date "date"
     t.string "comprobante"
@@ -171,6 +187,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_123925) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cheques", "banks"
   add_foreign_key "extractos", "banks"
+  add_foreign_key "fijos", "months"
   add_foreign_key "hojas", "cheques"
   add_foreign_key "transactions", "extractos"
 end

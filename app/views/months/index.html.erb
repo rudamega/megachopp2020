@@ -1,0 +1,19 @@
+<div class="text-center">
+  <%= link_to "Agregar Mes", new_month_path, class: "btn btn-success text-center" %>
+</div>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @months.each do |mes| %>
+        <tr>
+          <th scope="row"><%=link_to mes.name, "#"%></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
