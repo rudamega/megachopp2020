@@ -9,3 +9,26 @@
     <% end %>
   <% end %>
 </ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Habitacion</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@habitaciones.each do |habitacion|%>
+      <tr>
+        <td> <%= link_to habitacion_path(habitacion) do %>
+          <%=habitacion.name%>
+        <% end %>
+        </td>
+       <td><%= link_to habitacion_path(habitacion), method: :delete, remote: true do %>
+        Eliminar
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

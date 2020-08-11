@@ -51,8 +51,9 @@
                 <% else %>
                 <td><%= trans.comment %></td>
                 <% end %>
-                <td><%=trans.importe_debito%></td>
-                <td><%=trans.importe_credito%></td>
+
+                <td><%= number_with_delimiter(trans.importe_debito, :delimiter => '.') %></td>
+                <td><%= number_with_delimiter(trans.importe_credito, :delimiter => '.') %></td>
                   <td>
                     <%= link_to conciliado_path(trans), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
                     <h6 class="btn btn-danger text-center"><%=trans.status%></h6>

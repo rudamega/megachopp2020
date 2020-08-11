@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Carga de retiros</h3>
+
+      <%= simple_form_for(@retiro) do |f| %>
+        <%= f.input :monto,label: "Monto"%>
+        <%= f.input :forma, collection: ["Guaranies", "Dolares", 'Reales', "Cheque"], label: "Forma"%>
+        <%= f.input :enviado_a, collection: ["Caja Liz Guaranies", "Caja Liz Dolares", "Caja Liz Reales", "Caja Liz Pesos"], label: "A que cuenta enviaste?"%>
+        <%= f.input :obs%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Guardar"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
