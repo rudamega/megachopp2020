@@ -15,7 +15,7 @@
           <%=habitacion.name%>
         <% end %>
         </td>
-       <td><%= link_to habitacion_path(habitacion), method: :delete, remote: true do %>
+       <td><%= link_to habitacion_path(habitacion), method: :delete, data: {confirm: "Deseas confirmar esta operacion??"} do %>
         Eliminar
         <% end %>
         </td>
