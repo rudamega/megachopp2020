@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :retiros
+
   resources :months do
     resources :fijos, only: [:new, :create]
   end

@@ -16,6 +16,12 @@ class HabitacionsController < ApplicationController
     redirect_to root_path if @habitacion.save
   end
 
+  def destroy
+    @habitacion = Habitacion.find(params[:id])
+    @habitacion.destroy
+    redirect_to root_path
+  end
+
   def bolsas
     @habitacion = Habitacion.find(params[:id])
     @habitacion.bolsas = "si"
@@ -224,7 +230,6 @@ class HabitacionsController < ApplicationController
     @habitacion.pasar_trapo_ventana = "no"
     redirect_to habitacion_path(@habitacion) if @habitacion.save
   end
-
 
   private
 
