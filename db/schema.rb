@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_170305) do
+ActiveRecord::Schema.define(version: 2020_08_11_135628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_170305) do
     t.string "creado_por"
     t.string "cargado_por"
     t.string "conciliado_por"
+    t.string "forma"
   end
 
   create_table "extractos", force: :cascade do |t|
