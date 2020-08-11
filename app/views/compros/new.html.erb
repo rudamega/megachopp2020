@@ -6,6 +6,7 @@
       <%= simple_form_for(@compro) do |f| %>
         <%= f.input :name, label: "Quien envia?"%>
         <%= f.input :comment, label: "Colocar aqui a que reserva corresponde o a que hab."%>
+        <%= f.input :forma, label: "Colocar aqui si es transfer o cheque", collection: ['Cheque', 'Transferencia']%>
         <%= f.input :monto, label: "Monto"%>
         <%= f.input :image, as: :file, label: "Subir comprobante" %>
         <div class="d-flex justify-content-center">

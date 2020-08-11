@@ -19,6 +19,7 @@
               <th scope="col">NRO de Compro</th>
               <th scope="col">Quien envia</th>
               <th scope="col">Para que reserva/hab?</th>
+              <th scope="col">Forma</th>
               <th scope="col">Monto</th>
               <th scope="col">Comprobante</th>
               <th scope="col">Status</th>
@@ -37,6 +38,7 @@
                 <% end %>
                 <td><%=compro.name%></td>
                 <td><%=compro.comment %></td>
+                <td><%=compro.forma %></td>
                 <td><%=compro.monto %></td>
                 <%if compro.image.attached? %>
                   <td><%=link_to "Ver comprobante", "https://res.cloudinary.com/dpjghjtp1/image/upload/v1594152130/#{compro.image.key}.jpg", target: :_blank%></td>

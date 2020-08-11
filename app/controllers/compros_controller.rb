@@ -57,7 +57,7 @@ class ComprosController < ApplicationController
   private
 
   def compros_params
-    params.require(:compro).permit(:name, :comment, :monto, :image, :nro)
+    params.require(:compro).permit(:name, :comment, :monto, :image, :nro, :forma)
   end
 
 end
