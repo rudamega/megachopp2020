@@ -32,15 +32,39 @@
                 <td><%=retiro.created_at%></td>
                 <td><%=retiro.forma%></td>
                 <td><%= number_with_delimiter(retiro.monto, :delimiter => '.') %></td>
-                <td><%=retiro.comprobante %></td>
-                <td><%=retiro.comprobante %></td>
-                <td><%=retiro.comprobante %></td>
-                <td><%=retiro.comprobante %></td>
+                <td><%=retiro.enviado_a %></td>
+                <% if retiro.retirado_por.nil? %>
+                  <td>
+                    <%= link_to conciliado_retiros_path(retiro), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                    <h6 class="btn btn-danger text-center">Recibir</h6>
+                    <% end %>
+                  </td>
+                <% else %>
+                  <td><h6 class="btn btn-success text-center"><%=retiro.retirado_por.upcase%></h6></td>
+                <% end %>
+                <% if !current_user.nil? %>
+                  <% if current_user.rol == "admin" && "adminis"%>
+                  <%if retiro.status.nil? %>
+                    <td>
+                      <%= link_to conciliado_banco_path(retiro), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                      <h6 class="btn btn-danger text-center">EN CAJA</h6>
+                    </td>
+                      <% end %>
+                  <% else %>
+                    <td>
+                      <h6 class="btn btn-success text-center">DEPOSITADO</h6>
+                    </td>
+                  <% end %>
+                  <% end %>
+                <% end %>
+              <% if retiro.comprobante.nil? %>
+                    <td><%= link_to "Agregar", edit_retiro_path(retiro)%></td>
+              <% else %>
+                    <td><%= retiro.comprobante %></td>
+              <% end %>
               </tr>
               </div>
-
-            <% end %>
-
+          <% end %>
           </tbody>
           </table>
         </div>

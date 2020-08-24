@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Carga de comprobantes</h3>
+
+      <%= simple_form_for(@retiro) do |f| %>
+        <%= f.input :comprobante, label: "Nro de Comprobante en el extracto del banco"%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Guardar"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', retiros_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :habitacions
   resources :transactions, only: [:show, :edit, :update]
   resources :compros
+  get '/consiliados/:id', to: 'retiros#conciliado_retiro', as: :conciliado_retiros
+  get '/enbanco/:id', to: 'retiros#conciliado_banco', as: :conciliado_banco
   get '/conciliado/:id', to: 'transactions#conciliado', as: :conciliado
   get '/aprobado/:id', to: 'hojas#aprobado', as: :aprobado
   get '/compensado/:id', to: 'hojas#compensado', as: :compensado
