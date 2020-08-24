@@ -2,8 +2,12 @@
   <%= current_user.rol %>
 <% end %>
 
-<%= link_to banks_path do %>
-<h1>Bancos</h1>
+<% if !current_user.nil? %>
+  <% if current_user.rol == "admin" %>
+    <%= link_to banks_path do %>
+      <h1>Bancos</h1>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= link_to compros_path do %>

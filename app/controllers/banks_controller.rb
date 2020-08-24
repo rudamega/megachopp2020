@@ -1,6 +1,4 @@
 class BanksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :new, :create, :show]
-
   def index
     @banks = Bank.all
   end
