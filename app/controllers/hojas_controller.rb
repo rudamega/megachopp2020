@@ -18,7 +18,14 @@ class HojasController < ApplicationController
   def update
     @hoja = Hoja.find(params[:id])
     @hoja.update(hojas_params)
-    redirect_to cheque_path(@hoja.cheque_id) if @hoja.save
+    @funcionario = current_user.name
+    if @hoja.save
+      mail = UserMailer.hoja(@hoja, @funcionario)
+      mail.deliver_later
+      redirect_to cheque_path(@hoja.cheque_id)
+    else
+      render 'edit'
+    end
   end
 
   def aprobado

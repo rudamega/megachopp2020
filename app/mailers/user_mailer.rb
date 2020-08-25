@@ -23,4 +23,10 @@ class UserMailer < ApplicationMailer
     @compro = compro
     mail to: "recepcionmegal@gmail.com", subject: "DEPOSITO/TRANSFERENCIA CONFIRMADA - #{@compro.name} - Monto: #{compro.monto}"
   end
+
+  def hoja(hoja, funcionario)
+    @hoja = hoja
+    @funcionario = funcionario.capitalize
+    mail to: "ruben@hotelmegal.com.py", subject: "Solicitud de Aprobacion - #{@hoja.nro} - Monto: #{@hoja.monto}"
+  end
 end
