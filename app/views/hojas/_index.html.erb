@@ -73,9 +73,13 @@
                   <td><%=hoja.description %></td>
                   <td><%=hoja.monto %></td>
                   <td><%=hoja.fecha_pago%></td>
-                    <td>
-                      <h6 class="btn btn-success text-center">Aprobado</h6>
-                  </td>
+                    <% if current_user.rol = "admin" %>
+                      <td>
+                        <h6 class="btn btn-success text-center">Aprobado</h6>
+                      </td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
                   <td><%=hoja.aprobado_por%></td>
                     <td>
                       <% if hoja.compensado == "no" %>
