@@ -1,9 +1,9 @@
 <% if !current_user.nil? %>
-  <%= current_user.rol %>
+  User = <%= current_user.rol %>
 <% end %>
 
 <% if !current_user.nil? %>
-  <% if current_user.rol == "admin" %>
+  <% if current_user.rol == "admin" || current_user.rol == "Administracion" %>
     <%= link_to banks_path do %>
       <h1>Bancos</h1>
     <% end %>
