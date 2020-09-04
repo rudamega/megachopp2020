@@ -21,8 +21,12 @@
               <th scope="col">Monto</th>
               <th scope="col">A Cuenta</th>
               <th scope="col">Recibido por</th>
-              <th scope="col">Estado</th>
-              <th scope="col">Comprobante</th>
+              <% if !current_user.nil? %>
+                <% if current_user.rol == "admin" && "adminis"%>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Comprobante</th>
+                <% end %>
+              <% end %>
             </tr>
           </thead>
           <tbody>
@@ -57,11 +61,15 @@
                   <% end %>
                   <% end %>
                 <% end %>
-              <% if retiro.comprobante.nil? %>
-                    <td><%= link_to "Agregar", edit_retiro_path(retiro)%></td>
-              <% else %>
-                    <td><%= retiro.comprobante %></td>
-              <% end %>
+                <% if !current_user.nil? %>
+                  <% if current_user.rol == "admin" && "adminis"%>
+                    <% if retiro.comprobante.nil? %>
+                      <td><%= link_to "Agregar", edit_retiro_path(retiro)%></td>
+                    <% else %>
+                      <td><%= retiro.comprobante %></td>
+                    <% end %>
+                  <% end %>
+                <% end %>
               </tr>
               </div>
           <% end %>

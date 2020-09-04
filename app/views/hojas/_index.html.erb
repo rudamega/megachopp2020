@@ -32,11 +32,15 @@
                 <td><%=hoja.description %></td>
                 <td><%=hoja.monto %></td>
                 <td><%=hoja.fecha_pago%></td>
-                  <td>
-                    <%= link_to aprobado_path(hoja), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
-                    <h6 class="btn btn-danger text-center">No-aprobado</h6>
+                  <% if current_user.rol = "admin" %>
+                    <td>
+                      <%= link_to aprobado_path(hoja), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                      <h6 class="btn btn-danger text-center">No-aprobado</h6>
+                    <% else %>
+                      <td></td>
                     <% end %>
-                  </td>
+                    </td>
+                  <% end %>
                   <td>
                     <%= link_to edit_hoja_path(hoja), data: {confirm: "Deseas usar este cheque??"} do  %>
                     <h6 class="btn btn-dark text-center">Usar hoja</h6>
