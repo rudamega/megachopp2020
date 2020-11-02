@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :transactions, only: [:new, :create]
     end
 
+  resources :menus
   resources :cheques, only: [:show, :edit, :update] do
     resources :hojas, only: [:new, :create]
   end
