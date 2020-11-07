@@ -32,6 +32,10 @@ class MenusController < ApplicationController
     @sugerencia = Menu.where(sugerencia: true)
   end
 
+  def sugerencia
+
+  end
+
   private
   def menus_params
     params.require(:menu).permit(:name, :price, :description, :tipo)
