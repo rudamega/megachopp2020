@@ -21,9 +21,9 @@
           <td>NO</td>
         <% end %>
         <% if entradas.sugerencia == true %>
-          <td> SI </td>
+          <td><%= link_to "SI", sugerencia_path(entradas) %></td>
         <% else %>
-          <td>NO</td>
+          <td><%= link_to "NO", sugerencia_path(entradas) %></td>
         <% end %>
       </tr>
     <% end %>

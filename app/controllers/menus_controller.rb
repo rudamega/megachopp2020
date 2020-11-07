@@ -10,6 +10,7 @@ class MenusController < ApplicationController
   end
 
   def show
+    @menu = Menu.find(params[:id])
   end
 
   def new
@@ -33,11 +34,18 @@ class MenusController < ApplicationController
   end
 
   def sugerencia
-
+    sugerencia = Menu.find(params[:id])
+    if sugerencia.sugerencia == true
+      sugerencia.sugerencia = false
+    else
+      sugerencia.sugerencia = true
+    end
+      sugerencia.save
+    redirect_to menus_path
   end
 
   private
   def menus_params
-    params.require(:menu).permit(:name, :price, :description, :tipo)
+    params.require(:menu).permit(:name, :price, :description, :tipo, :photo)
   end
 end

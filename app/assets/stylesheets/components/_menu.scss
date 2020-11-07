@@ -19,8 +19,18 @@
 
 }
 
+.menu-show {
+  margin: 20px;
+}
+
+.carousel-item img {
+  border-radius: 15px;
+}
+
 @media (min-width: 500px) {
   #menu{
     display: none;
   }
 }
+
+

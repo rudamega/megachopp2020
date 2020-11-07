@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :menus
   get '/carta', to: 'menus#carta', as: :carta
+  get '/sugerencia/:id', to: 'menus#sugerencia', as: :sugerencia
+
   resources :cheques, only: [:show, :edit, :update] do
     resources :hojas, only: [:new, :create]
   end
