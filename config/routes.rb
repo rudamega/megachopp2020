@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
 
   resources :menus
+  get '/carta', to: 'menus#carta', as: :carta
   resources :cheques, only: [:show, :edit, :update] do
     resources :hojas, only: [:new, :create]
   end
