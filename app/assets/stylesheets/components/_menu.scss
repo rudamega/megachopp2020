@@ -18,3 +18,9 @@
   margin: 20px;
 
 }
+
+@media (min-width: 500px) {
+  #menu{
+    display: none;
+  }
+}

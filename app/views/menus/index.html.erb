@@ -1,4 +1,158 @@
-
+<div class="text-center"> Entradas</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Sugerencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@entradas.each do |entradas| %>
+      <tr>
+        <th scope="row"><%= entradas.id %></th>
+        <td><%= link_to entradas.name, menu_path(entradas) %></td>
+        <td><%= entradas.price %></td>
+        <% if entradas.activado == true %>
+          <td> SI</td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+        <% if entradas.sugerencia == true %>
+          <td> SI </td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">Plato Principal</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Sugerencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@plato.each do |plato| %>
+      <tr>
+        <th scope="row"><%= plato.id %></th>
+        <td><%= link_to plato.name, menu_path(plato) %></td>
+        <td><%= plato.price %></td>
+        <% if plato.activado == true %>
+          <td> SI</td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+        <% if plato.sugerencia == true %>
+          <td> SI </td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">Postres</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Sugerencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@postre.each do |postre| %>
+      <tr>
+        <th scope="row"><%= postre.id %></th>
+        <td><%= link_to postre.name, menu_path(postre) %></td>
+        <td><%= postre.price %></td>
+        <% if postre.activado == true %>
+          <td> SI</td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+        <% if postre.sugerencia == true %>
+          <td> SI </td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center"> Bebidas sin alcohol</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Sugerencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@postre.each do |postre| %>
+      <tr>
+        <th scope="row"><%= postre.id %></th>
+        <td><%= link_to postre.name, menu_path(postre) %></td>
+        <td><%= postre.price %></td>
+        <% if postre.activado == true %>
+          <td> SI</td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+        <% if postre.sugerencia == true %>
+          <td> SI </td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">Bebidas con Alcohol</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Sugerencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@postre.each do |postre| %>
+      <tr>
+        <th scope="row"><%= postre.id %></th>
+        <td><%= link_to postre.name, menu_path(postre) %></td>
+        <td><%= postre.price %></td>
+        <% if postre.activado == true %>
+          <td> SI</td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+        <% if postre.sugerencia == true %>
+          <td> SI </td>
+        <% else %>
+          <td>NO</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <div id="menu">
   <div class="sub-menu">
       <div>Ver Carta</div>
