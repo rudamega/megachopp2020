@@ -1,0 +1,18 @@
+ <% if @menu.photo.attached? %>
+  <div class="menu-show">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src=<%="https://res.cloudinary.com/dpjghjtp1/image/upload/v1604751124/#{@menu.photo.key}.jpg "%>, alt="First slide">
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="container">
+  <div class="text-center">
+    <%= @menu.name %>
+  </div>
+  Description: <%= @menu.description %>
+  Precio: <%= @menu.price %>
+</div>
