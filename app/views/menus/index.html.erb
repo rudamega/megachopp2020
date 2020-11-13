@@ -8,6 +8,7 @@
         <th scope="col">Precio</th>
         <th scope="col">Estado</th>
         <th scope="col">Sugerencia</th>
+        <th scope="col">Accion</th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
           <% else %>
             <td><%= link_to "NO", sugerencia_path(menu) %></td>
           <% end %>
+            <td><%= link_to "Editar", edit_menu_path(menu) %></td>
         </tr>
       <% end %>
     </tbody>
