@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
 
   resources :menus
+  resources :tipos
+  resources :categorys
   get '/carta', to: 'menus#carta', as: :carta
   get '/sugerencia/:id', to: 'menus#sugerencia', as: :sugerencia
 

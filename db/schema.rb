@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_035520) do
+ActiveRecord::Schema.define(version: 2020_11_09_110424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,7 +158,8 @@ ActiveRecord::Schema.define(version: 2020_11_02_035520) do
     t.boolean "sugerencia", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "tipo"
+    t.bigint "tipo_id", null: false
+    t.index ["tipo_id"], name: "index_menus_on_tipo_id"
   end
 
   create_table "months", force: :cascade do |t|
@@ -177,6 +178,13 @@ ActiveRecord::Schema.define(version: 2020_11_02_035520) do
     t.text "obs"
     t.string "retirado_por"
     t.string "enviado_a"
+  end
+
+  create_table "tipos", force: :cascade do |t|
+    t.string "name"
+    t.boolean "activado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -214,5 +222,6 @@ ActiveRecord::Schema.define(version: 2020_11_02_035520) do
   add_foreign_key "extractos", "banks"
   add_foreign_key "fijos", "months"
   add_foreign_key "hojas", "cheques"
+  add_foreign_key "menus", "tipos"
   add_foreign_key "transactions", "extractos"
 end

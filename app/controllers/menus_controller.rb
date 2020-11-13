@@ -2,11 +2,7 @@ class MenusController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     @menus = Menu.all
-    @entradas = Menu.all.where(tipo: "Entrada")
-    @plato = Menu.all.where(tipo: "Plato Principal")
-    @postre = Menu.all.where(tipo: "Postre")
-    @conalcohol = Menu.all.where(tipo: "Bebida sin alcohol")
-    @sinalcohol = Menu.all.where(tipo: "Bebida con alcohol")
+    @tipo = Tipo.all
   end
 
   def show
@@ -15,6 +11,7 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    @tipo = Tipo.all
   end
 
   def create
@@ -31,6 +28,7 @@ class MenusController < ApplicationController
   def carta
     @menu = Menu.all
     @sugerencia = Menu.where(sugerencia: true)
+    @tipo = Tipo.all
   end
 
   def sugerencia
@@ -40,12 +38,11 @@ class MenusController < ApplicationController
     else
       sugerencia.sugerencia = true
     end
-      sugerencia.save
-    redirect_to menus_path
+      redirect_to menus_path if sugerencia.save
   end
 
   private
   def menus_params
-    params.require(:menu).permit(:name, :price, :description, :tipo, :photo)
+    params.require(:menu).permit(:name, :price, :description, :tipo_id, :photo)
   end
 end
