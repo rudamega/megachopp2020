@@ -20,9 +20,14 @@ class MenusController < ApplicationController
   end
 
   def edit
+    @menu = Menu.find(params[:id])
+    @tipo = Tipo.all
   end
 
   def update
+    @menu = Menu.find(params[:id])
+    @menu.update(menus_params)
+    redirect_to menus_path if @menu.save
   end
 
   def carta
