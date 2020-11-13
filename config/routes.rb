@@ -20,7 +20,6 @@ Rails.application.routes.draw do
 
   resources :menus
   resources :tipos
-  resources :categorys
   get '/carta', to: 'menus#carta', as: :carta
   get '/sugerencia/:id', to: 'menus#sugerencia', as: :sugerencia
 
