@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: :carta
   def index
     @menus = Menu.all
     @tipo = Tipo.all

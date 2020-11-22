@@ -17,9 +17,19 @@ class TiposController < ApplicationController
     redirect_to tipos_path if @tipo.save
   end
 
+  def edit
+    @tipo = Tipo.find(params[:id])
+  end
+
+  def update
+    @tipo = Tipo.find(params[:id])
+    @tipo.update(tipos_params)
+    redirect_to menus_path if @tipo.save
+  end
+
   private
 
   def tipos_params
-    params.require(:tipo).permit(:name, :activado)
+    params.require(:tipo).permit(:name, :activado, :display)
   end
 end

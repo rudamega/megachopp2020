@@ -1,0 +1,25 @@
+  <h1 class="btn btn-primary"><%= link_to "Agragar nuevo", new_covid_path %></h1>
+  <div class="text-center">Clientes</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Grados</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clientes.each do |cliente|%>
+        <tr>
+          <td><%= cliente.name%></td>
+          <td><%= cliente.cinumber %></td>
+
+          <td><%= cliente.tel%></td>
+          <td><%= cliente.email%></td>
+          <!-- <td><%= cliente.grados%></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
