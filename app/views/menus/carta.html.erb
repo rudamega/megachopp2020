@@ -1,19 +1,3 @@
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a class="nav-link active" id="pills-platos-tab" data-toggle="pill" href="#pills-platos" role="tab" aria-controls="pills-platos" aria-selected="true">Platos</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-picadas-tab" data-toggle="pill" href="#pills-picadas" role="tab" aria-controls="pills-picadas" aria-selected="false">Picadas</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-Bebidas-tab" data-toggle="pill" href="#pills-Bebidas" role="tab" aria-controls="pills-Bebidas" aria-selected="false">Bebidas</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-Postres-tab" data-toggle="pill" href="#pills-Postres" role="tab" aria-controls="pills-Postres" aria-selected="false">Postres</a>
-  </li>
-</ul>
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-platos" role="tabpanel" aria-labelledby="pills-platos-tab">
     <div class="accordion" id="accordionExample">
       <div class="card">
         <div class="card-header" id="headingOne">
@@ -40,7 +24,7 @@
           </div>
         </div>
       </div>
-    <% @tipo.where(display: "Plato").each do |tipo| %>
+    <% @tipo.each do |tipo| %>
       <div class="card">
         <div class="card-header" id="headingTwo">
           <h2 class="mb-0">
@@ -70,98 +54,6 @@
     <% end %>
     </div>
   </div>
-  <div class="tab-pane fade" id="pills-picadas" role="tabpanel" aria-labelledby="pills-picadas-tab">
-    <% @tipo.where(display: "Picada").each do |tipo| %>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" <%="data-target=#collapse#{tipo.name}"%> aria-expanded="false" <%="aria-controls=collapse#{tipo.name}"%>>
-          <%= tipo.name %>
-        </button>
-      </h2>
-    </div>
-    <div <%="id=collapse#{tipo.name}"%> class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-          <%@menu.where(tipo_id: tipo.id).each do |menu| %>
-            <div class="card-product">
-              <% if menu.photo.attached? %>
-                <img src=<%="https://res.cloudinary.com/dpjghjtp1/image/upload/v1604751124/#{menu.photo.key}.jpg "%>>
-              <% else %>
-                <%= image_tag "plate.png", height: 110, width: 110, crop: :fill %>
-              <% end %>
-              <div class="card-product-infos">
-                <h2><%= menu.name %></h2>
-                <p>Precio: <strong><%= menu.price %></strong> </p>
-                <%= link_to "Ver mas", menu_path(menu), class:('btn btn-primary') %>
-              </div>
-            </div>
-          <% end %>
-      </div>
-  </div>
-<% end %>
-</div>
-  </div>
-  <div class="tab-pane fade" id="pills-Bebidas" role="tabpanel" aria-labelledby="pills-Bebidas-tab">
-    <% @tipo.where(display: "Bedida").each do |tipo| %>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" <%="data-target=#collapse#{tipo.name}"%> aria-expanded="false" <%="aria-controls=collapse#{tipo.name}"%>>
-              <%= tipo.name %>
-            </button>
-          </h2>
-        </div>
-        <div <%="id=collapse#{tipo.name}"%> class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-              <%@menu.where(tipo_id: tipo.id).each do |menu| %>
-                <div class="card-product">
-                  <% if menu.photo.attached? %>
-                    <img src=<%="https://res.cloudinary.com/dpjghjtp1/image/upload/v1604751124/#{menu.photo.key}.jpg "%>>
-                  <% else %>
-                    <%= image_tag "plate.png", height: 110, width: 110, crop: :fill %>
-                  <% end %>
-                  <div class="card-product-infos">
-                    <h2><%= menu.name %></h2>
-                    <p>Precio: <strong><%= menu.price %></strong> </p>
-                    <%= link_to "Ver mas", menu_path(menu), class:('btn btn-primary') %>
-                  </div>
-                </div>
-              <% end %>
-          </div>
-      </div>
-    <% end %>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="pills-Postres" role="tabpanel" aria-labelledby="pills-Postres-tab">
-    <% @tipo.where(display: "Postre").each do |tipo| %>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" <%="data-target=#collapse#{tipo.name}"%> aria-expanded="false" <%="aria-controls=collapse#{tipo.name}"%>>
-              <%= tipo.name %>
-            </button>
-          </h2>
-        </div>
-        <div <%="id=collapse#{tipo.name}"%> class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-              <%@menu.where(tipo_id: tipo.id).each do |menu| %>
-                <div class="card-product">
-                  <% if menu.photo.attached? %>
-                    <img src=<%="https://res.cloudinary.com/dpjghjtp1/image/upload/v1604751124/#{menu.photo.key}.jpg "%>>
-                  <% else %>
-                    <%= image_tag "plate.png", height: 110, width: 110, crop: :fill %>
-                  <% end %>
-                  <div class="card-product-infos">
-                    <h2><%= menu.name %></h2>
-                    <p>Precio: <strong><%= menu.price %></strong> </p>
-                    <%= link_to "Ver mas", menu_path(menu), class:('btn btn-primary') %>
-                  </div>
-                </div>
-              <% end %>
-          </div>
-      </div>
-    <% end %>
-    </div>
-  </div>
+
 </div>
 
