@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  skip_before_action :authenticate_user!, only: :carta, :show
+  skip_before_action :authenticate_user!, only: [:carta, :show]
   def index
     @menus = Menu.all
     @tipo = Tipo.all
@@ -9,7 +9,7 @@ class MenusController < ApplicationController
     @menu = Menu.find(params[:id])
   end
 
-  def new
+  def ne
     @menu = Menu.new
     @tipo = Tipo.all
   end
