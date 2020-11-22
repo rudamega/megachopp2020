@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
-      <%= simple_form_for(@tipo) do |f| %>
+      <h3>Clientes que ingresan al resto</h3>
+
+      <%= simple_form_for(@cliente) do |f| %>
         <%= f.input :name, label: "Nombre"%>
-        <%= f.input :activado, collection: ["Activado", "Desactivado"]%>
-        <%= f.input :display, collection: ["Plato", "Picada", "Bebida", "Postre"]%>
+        <%= f.input :cinumber, label: "Ci Number"%>
+        <%= f.input :tel, label: "Telefono"%>
+        <%= f.input :email, label: "Email"%>
+        <%= f.input :grados, label: "Grados" %>
         <div class="d-flex justify-content-center">
-        <%= f.submit "Crear Category"%>
+        <%= f.submit "Guardar"%>
         </div>
       <% end %>
       <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
