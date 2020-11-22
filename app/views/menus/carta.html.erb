@@ -165,34 +165,3 @@
   </div>
 </div>
 
-<% @tipo.where(display: "Plato").each do |tipo| %>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" <%="data-target=#collapse#{tipo.name}"%> aria-expanded="false" <%="aria-controls=collapse#{tipo.name}"%>>
-          <%= tipo.name %>
-        </button>
-      </h2>
-    </div>
-    <div <%="id=collapse#{tipo.name}"%> class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-          <%@menu.where(tipo_id: tipo.id).each do |menu| %>
-            <div class="card-product">
-              <% if menu.photo.attached? %>
-                <img src=<%="https://res.cloudinary.com/dpjghjtp1/image/upload/v1604751124/#{menu.photo.key}.jpg "%>>
-              <% else %>
-                <%= image_tag "plate.png", height: 110, width: 110, crop: :fill %>
-              <% end %>
-              <div class="card-product-infos">
-                <h2><%= menu.name %></h2>
-                <p>Precio: <strong><%= menu.price %></strong> </p>
-                <%= link_to "Ver mas", menu_path(menu), class:('btn btn-primary') %>
-              </div>
-            </div>
-          <% end %>
-      </div>
-  </div>
-<% end %>
-</div>
-
-
