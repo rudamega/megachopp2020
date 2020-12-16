@@ -6,7 +6,7 @@
       <%= simple_form_for(@retiro) do |f| %>
         <%= f.input :monto,label: "Monto"%>
         <%= f.input :forma, collection: ["Guaranies", "Dolares", 'Reales', "Cheque"], label: "Forma"%>
-        <%= f.input :enviado_a, collection: ["Caja RECEPCION PARA PAGOS", "Caja Liz Guaranies", "Caja Liz Dolares", "Caja Liz Reales", "Caja Liz Pesos", "SALARIOS"], label: "A que cuenta enviaste?"%>
+        <%= f.input :enviado_a, collection: ["Caja RECEPCION PARA PAGOS", "Caja Liz Guaranies","BANCO ATLAS 111", "Caja Liz Dolares", "Caja Liz Reales", "Caja Liz Pesos", "SALARIOS"], label: "A que cuenta enviaste?"%>
         <%= f.input :obs%>
         <div class="d-flex justify-content-center">
         <%= f.submit "Guardar"%>
