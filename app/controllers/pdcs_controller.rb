@@ -5,7 +5,7 @@ class PdcsController < ApplicationController
 
   def show
     @pdc = Pdc.find(params[:id])
-    @fechas = Fecha.where(pdc_id: params[:id])
+    @fechas = Fecha.where(pdc_id: params[:id]).order( created_at: :desc)
   end
 
   def new

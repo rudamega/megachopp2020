@@ -17,7 +17,7 @@
               <tbody>
                 <% @fechas.each do |fecha| %>
                   <tr>
-                    <th scope="row"><%=link_to fecha.date, fecha_path(fecha)%> - Saldo inicial: <%= fecha.saldo_inicial%>  - Saldo en caja: <%= fecha.saldo_final %></th>
+                    <th scope="row"><%=link_to fecha.date, fecha_path(fecha)%> - Saldo inicial: <%= number_with_delimiter(fecha.saldo_inicial, :delimiter => '.')%>  - Saldo en caja: <%=number_with_delimiter(fecha.saldo_final, :delimiter => '.')  %></th>
                   </tr>
                 <% end %>
               </tbody>

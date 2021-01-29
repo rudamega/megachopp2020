@@ -4,6 +4,12 @@
       <%= link_to "Cargar comprobante", new_fecha_factura_path(@fecha), class: "btn btn-success text-center"%>
     </div>
   </div>
+  <div class="text-center">
+    <br>
+    <div> Saldo inicial: <%= number_with_delimiter(@fecha.saldo_inicial, :delimiter => '.') %> </div>
+    <br>
+    <div> Saldo Final: <%= number_with_delimiter(@fecha.saldo_final, :delimiter => '.') %> </div>
+  </div>
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Factura Contado</a>
@@ -38,7 +44,7 @@
                    <td> <%= factura.nro %> </td>
                   <% end %>
                   <td><%=factura.proveedor %></td>
-                  <td><%=factura.monto %></td>
+                  <td><%= number_with_delimiter(factura.monto.to_i, :delimiter => '.') %></td>
                   <td><%=factura.tipo%></td>
                   <% if factura.registrado_por.nil? %>
                     <td><%=factura.registrado_por%></td>
@@ -116,7 +122,7 @@
                    <td> <%= factura.nro %> </td>
                   <% end %>
                   <td><%=factura.proveedor %></td>
-                  <td><%=factura.monto %></td>
+                  <td><%= number_with_delimiter(factura.monto.to_i, :delimiter => '.') %></td>
                   <td><%=factura.tipo%></td>
                   <% if factura.registrado_por.nil? %>
                     <td><%=factura.registrado_por%></td>

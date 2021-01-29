@@ -12,12 +12,21 @@ class FacturasController < ApplicationController
     @factura = Factura.new(facturas_params)
     @factura.original_en = "Recepcion"
     @factura.fecha_id = params[:fecha_id]
+    if @factura.tipo == "Contado"
+      fecha = Fecha.find(params[:fecha_id])
+      fecha.saldo_final = fecha.saldo_final - @factura.monto.to_i
+      fecha.save
+    end
     if current_user.name.nil?
       @factura.registrado_por = current_user.id
     else
       @factura.registrado_por = current_user.name
     end
-    redirect_to fecha_path(params[:fecha_id]) if @factura.save
+    if @factura.save
+      mail = FacturaMailer.factura(@factura)
+      mail.deliver_later
+      redirect_to fecha_path(params[:fecha_id])
+    end
   end
 
   def aprobado
