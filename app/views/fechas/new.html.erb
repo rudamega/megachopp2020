@@ -3,6 +3,7 @@
     <div class="col-12">
       <%= simple_form_for [@pdc, @fecha] do |f| %>
         <%= f.input :date%>
+        <%= f.input :saldo_inicial%>
         <div class="d-flex justify-content-center">
         <%= f.submit "Abri fecha"%>
         </div>
