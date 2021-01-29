@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_125841) do
+ActiveRecord::Schema.define(version: 2021_01_19_183638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,14 +54,6 @@ ActiveRecord::Schema.define(version: 2020_11_22_125841) do
     t.index ["bank_id"], name: "index_cheques_on_bank_id"
   end
 
-  create_table "compro", force: :cascade do |t|
-    t.string "comment"
-    t.string "name"
-    t.string "status", default: "no-conciliado"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "compros", force: :cascade do |t|
     t.string "comment"
     t.string "name"
@@ -92,6 +84,33 @@ ActiveRecord::Schema.define(version: 2020_11_22_125841) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bank_id"], name: "index_extractos_on_bank_id"
+  end
+
+  create_table "facturas", force: :cascade do |t|
+    t.string "nro"
+    t.string "proveedor"
+    t.string "monto"
+    t.date "date"
+    t.string "tipo"
+    t.string "registrado_por"
+    t.string "cargado_por"
+    t.string "autorizado_por"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "fecha_id", null: false
+    t.boolean "pagado"
+    t.string "original_en"
+    t.index ["fecha_id"], name: "index_facturas_on_fecha_id"
+  end
+
+  create_table "fechas", force: :cascade do |t|
+    t.date "date"
+    t.bigint "pdc_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "saldo_inicial", default: 0
+    t.integer "saldo_final", default: 0
+    t.index ["pdc_id"], name: "index_fechas_on_pdc_id"
   end
 
   create_table "fijos", force: :cascade do |t|
@@ -154,11 +173,6 @@ ActiveRecord::Schema.define(version: 2020_11_22_125841) do
     t.index ["cheque_id"], name: "index_hojas_on_cheque_id"
   end
 
-  create_table "items_imports", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "menus", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -174,6 +188,12 @@ ActiveRecord::Schema.define(version: 2020_11_22_125841) do
   end
 
   create_table "months", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pdcs", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -232,6 +252,8 @@ ActiveRecord::Schema.define(version: 2020_11_22_125841) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cheques", "banks"
   add_foreign_key "extractos", "banks"
+  add_foreign_key "facturas", "fechas"
+  add_foreign_key "fechas", "pdcs"
   add_foreign_key "fijos", "months"
   add_foreign_key "hojas", "cheques"
   add_foreign_key "menus", "tipos"
