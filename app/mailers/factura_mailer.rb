@@ -7,7 +7,7 @@ class FacturaMailer < ApplicationMailer
   #
   def factura(factura)
     @factura = factura
-    mail to: "ruben@hotelmegal.com.py",
+    mail to: "rubenmegalsuites@gmail.com",
     cc: "mirian@hotelmegal.com.py",
       subject: " Favor aprobar compra de #{@factura.proveedor}- Monto: #{@factura.monto} - Tipo: #{@factura.tipo} "
   end
