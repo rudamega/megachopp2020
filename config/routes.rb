@@ -6,6 +6,16 @@ Rails.application.routes.draw do
 
   resources :retiros
 
+  resources :pdcs do
+    resources :fechas, only: [:new, :create]
+  end
+
+  resources :fechas, only: [:index, :show] do
+    resources :facturas, only: [:new, :create]
+  end
+
+  resources :facturas, only: [:show]
+
   resources :months do
     resources :fijos, only: [:new, :create]
   end
@@ -35,6 +45,10 @@ Rails.application.routes.draw do
   get '/enbanco/:id', to: 'retiros#conciliado_banco', as: :conciliado_banco
   get '/conciliado/:id', to: 'transactions#conciliado', as: :conciliado
   get '/aprobado/:id', to: 'hojas#aprobado', as: :aprobado
+  get '/productos', to: 'pdcs#productos', as: :productos
+  get '/aprobarfactura/:id', to: 'facturas#aprobado', as: :aprobarfactura
+  get '/cargarfactura/:id', to: 'facturas#cargado', as: :cargarfactura
+  get '/lugardefactura/:id', to: 'facturas#lugar', as: :lugarfactura
   get '/compensado/:id', to: 'hojas#compensado', as: :compensado
   get '/conciliados/:id', to: 'compros#conciliado_compros', as: :conciliado_compros
   get '/cargado_por/:id', to: 'compros#cargado_compros', as: :cargado_por

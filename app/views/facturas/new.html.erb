@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Carga de comprobantes</h3>
+
+      <%= simple_form_for [@fecha, @factura] do |f| %>
+        <%= f.input :nro, label: "Nro"%>
+        <%= f.input :proveedor, label: "Proveedor"%>
+        <%= f.input :monto, label: "Monto"%>
+        <%= f.input :tipo, collection: ["Contado", "Credito"], label: "Contado o Credito"%>
+        <%= f.input :image, as: :file, label: "Subir comprobante" %>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Guardar"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

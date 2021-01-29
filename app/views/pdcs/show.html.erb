@@ -1,0 +1,30 @@
+<div class="container">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab" aria-controls="nav-add" aria-selected="false">Agregar</a>
+    </div>
+
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div style="overflow-x:auto;">
+          <div class="text-center m-5">
+            <%= link_to "Adicionar nueva fecha", new_pdc_fecha_path(@pdc), class: "btn btn-success text-center" %>
+          </div>
+          <div class="container">
+            <table class="table">
+              <tbody>
+                <% @fechas.each do |fecha| %>
+                  <tr>
+                    <th scope="row"><%=link_to fecha.date, fecha_path(fecha)%> - Saldo inicial: <%= fecha.saldo_inicial%>  - Saldo en caja: <%= fecha.saldo_final %></th>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

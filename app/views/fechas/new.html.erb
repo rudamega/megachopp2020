@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <%= simple_form_for [@pdc, @fecha] do |f| %>
+        <%= f.input :date%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Abri fecha"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

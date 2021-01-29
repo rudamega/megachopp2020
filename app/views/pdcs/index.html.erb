@@ -1,0 +1,5 @@
+<%@pdcs.each do |pdc|%>
+  <%= link_to pdc_path(pdc) do %>
+  <h3><%=pdc.name%></h3>
+  <% end %>
+<% end %>
