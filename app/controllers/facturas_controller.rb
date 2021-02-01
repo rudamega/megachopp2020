@@ -12,7 +12,7 @@ class FacturasController < ApplicationController
     @factura = Factura.new(facturas_params)
     @factura.original_en = "Recepcion"
     @factura.fecha_id = params[:fecha_id]
-    if @factura.tipo == "Contado"
+    if @factura.tipo == "Contado" || "Egreso"
       fecha = Fecha.find(params[:fecha_id])
       fecha.saldo_final = fecha.saldo_final - @factura.monto.to_i
       fecha.save
