@@ -7,7 +7,7 @@
         <%= f.input :nro, label: "Nro"%>
         <%= f.input :proveedor, label: "Proveedor"%>
         <%= f.input :monto, label: "Monto (no poner puntos ni comas)"%>
-        <%= f.input :tipo, collection: ["Contado", "Credito"], label: "Contado o Credito"%>
+        <%= f.input :tipo, collection: ["Contado", "Credito", "Ingreso", "Egreso"], label: "Contado o Credito"%>
         <%= f.input :image, as: :file, label: "Subir comprobante" %>
         <div class="d-flex justify-content-center">
         <%= f.submit "Guardar"%>

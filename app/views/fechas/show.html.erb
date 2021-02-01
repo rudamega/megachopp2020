@@ -14,7 +14,7 @@
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Factura Contado</a>
       <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Factura Crédito</a>
-    </div>
+      </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -36,7 +36,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @factura.where(tipo: "Contado").each do |factura| %>
+                <% @factura.where(tipo: "Contado" || "Ingreso" || "Egreso").each do |factura| %>
                 <tr>
                   <%if factura.image.attached? %>
                     <td><%=link_to factura.nro, "https://res.cloudinary.com/dpjghjtp1/image/upload/v1594152130/#{factura.image.key}.jpg", target: :_blank%></td>
