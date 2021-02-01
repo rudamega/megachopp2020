@@ -13,6 +13,8 @@
 <%= link_to compros_path do %>
 <h1>Comprobantes de depositos</h1>
 <% end %>
+<h1> <%= link_to "Compras", pdcs_path %> </h1>
+
 <% if !current_user.nil? %>
   <% if current_user.rol == "admin" %>
   <%= link_to months_path do %>
