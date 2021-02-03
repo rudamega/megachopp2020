@@ -14,7 +14,15 @@ class FechasController < ApplicationController
     @fecha = Fecha.new(fecha_params)
     @fecha.saldo_final = @fecha.saldo_inicial
     @fecha.pdc_id = params[:pdc_id]
-    redirect_to pdc_path(params[:pdc_id]) if @fecha.save
+    if @fecha.saldo_inicial == 0
+      flash[:alert] = "Ingresa un monto inicial para crear"
+      redirect_to pdc_path(params[:pdc_id])
+    else
+      @fecha.save
+      flash[:notice] = "Se ha creado una fecha"
+      redirect_to pdc_path(params[:pdc_id])
+      return
+    end
   end
 
   private

@@ -1,14 +1,20 @@
+<% if flash[:messages] %>
+  <h2><%= flash[:messages] %></h2>
+ <% end %>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
       <h3>Carga de comprobantes</h3>
 
       <%= simple_form_for [@fecha, @factura] do |f| %>
-        <%= f.input :nro, label: "Nro"%>
-        <%= f.input :proveedor, label: "Proveedor"%>
-        <%= f.input :monto, label: "Monto (no poner puntos ni comas)"%>
-        <%= f.input :tipo, collection: ["Contado", "Credito"], label: "Contado o Credito"%>
-        <%= f.input :image, as: :file, label: "Subir comprobante" %>
+        <%= f.input :proveedor, label: "Obserbacion"%>
+        <%= f.input :monto, required: true,
+        label: "Monto (no poner puntos ni comas)"%>
+        <%= f.input :tipo,
+                    collection: ["Ingreso", "Egreso"],
+                    label: "Ingreso o Egreso",
+                    required: true %>,
         <div class="d-flex justify-content-center">
         <%= f.submit "Guardar"%>
         </div>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :fechas, only: [:index, :show] do
     resources :facturas, only: [:new, :create]
+    get '/ingresoegreso', to: 'facturas#ingresoegreso', as: :ingresoegreso
   end
 
   resources :facturas, only: [:show]
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
   resources :habitacions
   resources :transactions, only: [:show, :edit, :update]
   resources :compros
+
   get '/consiliados/:id', to: 'retiros#conciliado_retiro', as: :conciliado_retiros
   get '/enbanco/:id', to: 'retiros#conciliado_banco', as: :conciliado_banco
   get '/conciliado/:id', to: 'transactions#conciliado', as: :conciliado
