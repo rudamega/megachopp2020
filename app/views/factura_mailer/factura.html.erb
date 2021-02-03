@@ -1,11 +1,22 @@
-<h1>Favor aprobar la compra realizada</h1>
+<% if @factura.tipo == "Contado" || @factura.tipo == "Credito"%>
+  <h1>Favor aprobar la compra realizada</h1>
 
-Se ha procedido a la compra de la sgte factura
+  Se ha procedido a la compra de la sgte factura
 
-<h3> Nro: <%=@factura.nro%></h3>
-<h3> Proveedor: <%=@factura.proveedor%></h3>
-<h3> Monto: <%=number_with_delimiter(@factura.monto.to_i, :delimiter => '.')%></h3>
-<% if @factura.image.attached? %>
-  <h3>Link del comprobante : <%=link_to "Ver comprobante", "https://res.cloudinary.com/dpjghjtp1/image/upload/v1594152130/#{@factura.image.key}.jpg", target: :_blank%></h3>
+  <h3> Nro: <%=@factura.nro%></h3>
+  <h3> Proveedor: <%=@factura.proveedor%></h3>
+  <h3> Monto: <%=number_with_delimiter(@factura.monto.to_i, :delimiter => '.')%></h3>
+  <% if @factura.image.attached? %>
+    <h3>Link del comprobante : <%=link_to "Ver comprobante", "https://res.cloudinary.com/dpjghjtp1/image/upload/v1594152130/#{@factura.image.key}.jpg", target: :_blank%></h3>
+  <% end %>
+    <h3>Link del comprobante : <%=link_to "Autorizar", factura_url(@factura), target: :_blank%></h3>
+<% else %>
+  Se ha realizado un <%= @factura.tipo %>
+
+  <h3> Obs: <%=@factura.proveedor%></h3>
+  <h3> Monto: <%=number_with_delimiter(@factura.monto.to_i, :delimiter => '.')%></h3>
+  <% if @factura.image.attached? %>
+    <h3>Link del comprobante : <%=link_to "Ver comprobante", "https://res.cloudinary.com/dpjghjtp1/image/upload/v1594152130/#{@factura.image.key}.jpg", target: :_blank%></h3>
+  <% end %>
+    <h3>Link del comprobante : <%=link_to "Autorizar", factura_url(@factura), target: :_blank%></h3>
 <% end %>
-  <h3>Link del comprobante : <%=link_to "Autorizar", factura_url(@factura), target: :_blank%></h3>
