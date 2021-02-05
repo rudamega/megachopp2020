@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :fechas, only: [:index, :show] do
-    resources :facturas, only: [:new, :create]
+    resources :facturas, only: [:new, :create, :destroy]
     get '/ingresoegreso', to: 'facturas#ingresoegreso', as: :ingresoegreso
   end
 
-  resources :facturas, only: [:show]
+  resources :facturas, only: [:show, :destroy]
 
   resources :months do
     resources :fijos, only: [:new, :create]

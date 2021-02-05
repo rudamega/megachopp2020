@@ -39,6 +39,21 @@ class FacturasController < ApplicationController
     end
   end
 
+  def destroy
+    @factura = Factura.find(params[:id])
+    @fecha = Fecha.find(@factura.fecha.id)
+    case @factura.tipo
+    when "Ingreso"
+      @fecha.saldo_final = @fecha.saldo_final - @factura.monto.to_i
+    when "Egreso"
+      @fecha.saldo_final = @fecha.saldo_final + @factura.monto.to_i
+    when "Contado"
+      @fecha.saldo_final = @fecha.saldo_final + @factura.monto.to_i
+    end
+    @fecha.save
+    redirect_to fecha_path(@fecha) if @factura.destroy
+  end
+
   def ingresoegreso
     @factura = Factura.new
     @fecha = Fecha.find(params[:fecha_id])
