@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get '/aprobado/:id', to: 'hojas#aprobado', as: :aprobado
   get '/productos', to: 'pdcs#productos', as: :productos
   get '/aprobarfactura/:id', to: 'facturas#aprobado', as: :aprobarfactura
+  get '/pagarfactura/:id', to: 'facturas#pagado', as: :pagarfactura
   get '/cargarfactura/:id', to: 'facturas#cargado', as: :cargarfactura
   get '/lugardefactura/:id', to: 'facturas#lugar', as: :lugarfactura
   get '/compensado/:id', to: 'hojas#compensado', as: :compensado
