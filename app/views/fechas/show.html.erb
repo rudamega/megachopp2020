@@ -7,6 +7,7 @@
   </div>
   <div class="text-center">
     <br>
+    <div><%= link_to "Prev", "#{@fecha.id - 1}" %> <%= @fecha.date.strftime("%d/%m/%y") %> <%= link_to "Next", "#{@fecha.id + 1}" %> </div>
     <div> Saldo inicial: <%= number_with_delimiter(@fecha.saldo_inicial, :delimiter => '.') %> </div>
     <br>
     <div> Saldo Final: <%= number_with_delimiter(@fecha.saldo_final, :delimiter => '.') %> </div>
