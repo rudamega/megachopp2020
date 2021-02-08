@@ -173,7 +173,19 @@
                         <h6 class="btn btn-primary text-center"><%=factura.cargado_por.capitalize%></h6>
                       </td>
                   <% end %>
-                  <td><h6 class="btn btn-success text-center">SI-NO</h6></td>
+                  <td>
+                    <% if current_user.rol == "Admin" && factura.pagado.nil?%>
+                        <%= link_to pagarfactura_path(factura), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
+                          <h6 class="btn btn-danger text-danger">NO</h6>
+                        <% end %>
+                    <% else %>
+                      <% if factura.pagado == true %>
+                        <h6 class="btn btn-primary text-center">Pagado</h6>
+                      <% else %>
+                        <h6 class="btn btn-danger text-center">NO</h6>
+                      <% end %>
+                    <% end %>
+                  </td>
                   <td>
                     <% if current_user.rol == "Administracion" || current_user.rol == "Contabilidad" %>
                       <%= link_to lugarfactura_path(factura), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
