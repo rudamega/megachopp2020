@@ -69,6 +69,12 @@ class FacturasController < ApplicationController
     redirect_to fecha_path(@factura.fecha) if @factura.save
   end
 
+  def pagado
+    @factura = Factura.find(params[:id])
+    @factura.pagado = true
+    redirect_to fecha_path(@factura.fecha) if @factura.save
+  end
+
   def cargado
     @factura = Factura.find(params[:id])
     if current_user.name.nil?
