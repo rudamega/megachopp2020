@@ -56,7 +56,7 @@
                   <% end %>
                   <td>
                     <% if factura.autorizado_por.nil? %>
-                      <% if current_user.rol == "admin" || current_user.rol == "Administracion" %>
+                      <% if current_user.rol == "Admin" || current_user.rol == "Administracion" %>
                         <%= link_to aprobarfactura_path(factura), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
                         <h6 class="btn btn-danger text-center">No-Autorizado</h6>
                         <% end %>
@@ -150,7 +150,7 @@
                   <% end %>
                   <td>
                     <% if factura.autorizado_por.nil? %>
-                      <% if !current_user.nil? && current_user.rol == "admin" || current_user.rol == "Administracion" %>
+                      <% if !current_user.nil? && current_user.rol == "Admin" || current_user.rol == "Administracion" %>
                         <%= link_to aprobarfactura_path(factura), data: {confirm: "Deseas confirmar esta operacion??"} do  %>
                         <h6 class="btn btn-danger text-center">No-Autorizado</h6>
                         <% end %>
