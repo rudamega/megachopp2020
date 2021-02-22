@@ -29,4 +29,12 @@ class UserMailer < ApplicationMailer
     @funcionario = funcionario.capitalize
     mail to: "ruben@hotelmegal.com.py", subject: "Solicitud de Aprobacion - #{@hoja.nro} - Monto: #{@hoja.monto}"
   end
+
+  def pagos(pago)
+    @pago = pago
+    mail to: "ruben@hotelmegal.com.py",
+    cc: "mirian@hotelmegal.com.py",
+    cc: "arami.arzamendia@bakertilly.com.py",
+    subject: "PAGO a #{@pago.proveedor} - Orden de pago: #{@pago.op}"
+  end
 end

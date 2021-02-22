@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :retiros
+  resources :pagos
 
   resources :pdcs do
     resources :fechas, only: [:new, :create]

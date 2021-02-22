@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3>Nuevo Pago</h3>
+
+      <%= simple_form_for(@pago) do |f| %>
+        <%= f.input :proveedor, label: "Proveedor"%>
+        <%= f.input :banco, label: "Nro de Cuenta",
+        collection: Bank.all
+        %>
+        <%= f.input :op, label: "Nro de Orden de Pago"%>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Guardar"%>
+        </div>
+      <% end %>
+      <%= link_to 'Back', root_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

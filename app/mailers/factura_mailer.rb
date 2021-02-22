@@ -8,15 +8,15 @@ class FacturaMailer < ApplicationMailer
     @factura = factura
     if factura.tipo == "Ingreso"
       mail to: "rubenmegalsuites@gmail.com",
-        # cc: "mirian@hotelmegal.com.py",
+        cc: "mirian@hotelmegal.com.py",
         subject: " Favor aprobar #{@factura.tipo} "
     elsif factura.tipo == "Egreso"
       mail to: "rubenmegalsuites@gmail.com",
-        # cc: "mirian@hotelmegal.com.py",
+        cc: "mirian@hotelmegal.com.py",
         subject: " Favor aprobar #{@factura.tipo} "
     else
     mail to: "rubenmegalsuites@gmail.com",
-      # cc: "mirian@hotelmegal.com.py",
+      cc: "mirian@hotelmegal.com.py",
       subject: " Favor aprobar compra de #{@factura.proveedor}- Monto: #{@factura.monto} - Tipo: #{@factura.tipo} "
     end
   end
