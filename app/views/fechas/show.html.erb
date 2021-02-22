@@ -14,9 +14,9 @@
   </div>
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Factura Contado</a>
-      <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Factura Crédito</a>
-      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Ingreso/Egreso</a>
+      <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Factura Contado ( <%= @factura.where(tipo: "Contado").count %> ) </a>
+      <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Factura Crédito ( <%= @factura.where(tipo: "Credito").count %> )</a>
+      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Ingreso/Egreso ( <%= @factura.where(tipo: "Ingreso").or(@factura.where(tipo: "Egreso").or(@factura.where(tipo: "Recibo"))).count %> ) </a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -101,9 +101,7 @@
                       <h6 class="btn btn-success text-center"><%=factura.original_en%></h6>
                     <% end %>
                   </td>
-                  <td>
-                    <%= link_to "Borrar", factura_path(factura), method: :delete %>
-                  </td>
+
                 </tr>
                 <% end %>
               </tbody>
@@ -196,9 +194,7 @@
                     <% end %>
                   </td>
                   <td><h6 class="btn btn-success text-center">-</h6></td>
-                  <td>
-                    <%= link_to "Borrar", factura_path(factura), method: :delete %>
-                  </td>
+
                 </tr>
                 <% end %>
               </tbody>
@@ -259,9 +255,7 @@
                   <td>
                     <h6 class="btn btn-primary text-center"><%=factura.cargado_por.capitalize%></h6>
                   </td>
-                  <td>
-                    <%= link_to "Borrar", factura_path(factura), method: :delete %>
-                  </td>
+
               <% end %>
             </tr>
             <% end %>
