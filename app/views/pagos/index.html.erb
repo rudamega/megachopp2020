@@ -29,7 +29,7 @@
                 <td> <%=pago.id%> </td>
                 <td> <%=pago.proveedor%></td>
                 <td> <%=pago.banco%> </td>
-                <td> <%= link_to pago.op, "https://demo.walk-in.app/pagos/printOrdenPagoAlter/#{pago.op.to_i + 29}"%></td>
+                <td> <%= link_to pago.op, "http://192.168.10.50/pagos/printOrdenPagoAlter/#{pago.op.to_i + 29}"%></td>
                 <% if pago.recibo == "No" %>
                   <td>
                     <%= link_to "#", data: {confirm: "Deseas confirmar esta operacion??"} do  %>
