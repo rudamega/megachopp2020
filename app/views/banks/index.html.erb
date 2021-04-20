@@ -1,5 +1,5 @@
 <%@banks.each do |bank|%>
   <%= link_to bank_path(bank) do %>
-  <h3><%=bank.name%> - [<%= bank.account_number %>]</h3>
+  <h3> <%=bank.name%> - [<%= bank.account_number %>]</h3>
   <% end %>
 <% end %>
